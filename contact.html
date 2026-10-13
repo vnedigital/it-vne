@@ -15,10 +15,11 @@
                     colors: {
                         brand: {
                             teal: '#00D09C',
+                            cyan: '#00E5FF',
                             darkTeal: '#009e76',
-                            charcoal: '#181A20',
-                            cardBg: '#20242D',
-                            slateAccent: '#2B303C'
+                            charcoal: '#0F1117',
+                            cardBg: '#161922',
+                            slateAccent: '#202430'
                         }
                     }
                 }
@@ -32,37 +33,49 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         .dropdown:hover .dropdown-menu { display: block; }
+
+        /* Contact & Support Operations Background */
+        .contact-bg {
+            background: linear-gradient(to bottom, rgba(15, 17, 23, 0.88), rgba(15, 17, 23, 0.95)), 
+                        url('https://images.unsplash.com/photo-1423784346385-c1d4dac9093a?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+        }
+
+        /* Slide Animation Classes */
+        .slide-left { opacity: 0; transform: translateX(-60px); transition: all 1s ease-out; }
+        .slide-right { opacity: 0; transform: translateX(60px); transition: all 1s ease-out; }
+        .slide-up { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
+        .animate-in { opacity: 1; transform: translate(0, 0); }
     </style>
 </head>
-<body class="bg-brand-charcoal text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-teal selection:text-black">
+<body class="bg-brand-charcoal text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-cyan selection:text-black">
 
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-slate-900 border-b border-slate-800 text-xs py-2 px-4 text-slate-400">
+    <div class="bg-slate-950/90 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <span class="flex h-2 w-2 relative">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-teal opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-teal"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
                 </span>
                 <span><strong>NOC Status:</strong> All Virtual Tunnels & Infrastructure Systems Operational (99.99%)</span>
             </div>
             <div class="hidden sm:flex items-center gap-4">
-                <span><i class="fa-solid fa-headset text-brand-teal mr-1"></i> 24/7 Managed NOC</span>
-                <span><i class="fa-solid fa-envelope text-brand-teal mr-1"></i> support@vnedigital.com</span>
+                <span><i class="fa-solid fa-headset text-brand-cyan mr-1"></i> 24/7 Managed NOC</span>
+                <span><i class="fa-solid fa-envelope text-brand-cyan mr-1"></i> support@vnedigital.com</span>
             </div>
         </div>
     </div>
 
     <!-- NAVIGATION HEADER -->
-    <header class="sticky top-0 z-50 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
+    <header class="sticky top-0 z-40 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Brand Logo with Image -->
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <img src="yber.png" alt="It.VNE Logo" class="w-10 h-10 object-contain rounded-xl group-hover:scale-105 transition-transform">
+                    <img src="yber.png" alt="It.VNE Logo" class="w-10 h-10 object-contain rounded-xl group-hover:scale-105 transition-transform shadow-lg shadow-brand-cyan/20">
                     <div class="flex flex-col">
                         <span class="text-2xl font-extrabold tracking-tight text-white flex items-center gap-1">
-                            It.<span class="text-brand-teal">VNE</span>
+                            It.<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">VNE</span>
                         </span>
                         <span class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold">Virtual Network Experts</span>
                     </div>
@@ -80,20 +93,20 @@
                             <i class="fa-solid fa-chevron-down text-xs"></i>
                         </a>
                         <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg border border-slate-700 shadow-2xl p-2 z-50">
-                            <a href="services.html#virtualization" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-teal transition">
-                                <i class="fa-solid fa-server text-brand-teal w-5 text-center"></i>
+                            <a href="services.html#virtualization" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-server text-brand-cyan w-5 text-center"></i>
                                 <div><div class="font-bold text-xs">VMware & Proxmox</div></div>
                             </a>
-                            <a href="services.html#pfsense" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-teal transition">
-                                <i class="fa-solid fa-shield-halved text-brand-teal w-5 text-center"></i>
+                            <a href="services.html#pfsense" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-shield-halved text-brand-cyan w-5 text-center"></i>
                                 <div><div class="font-bold text-xs">pfSense & Firewalls</div></div>
                             </a>
-                            <a href="services.html#zerotrust" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-teal transition">
-                                <i class="fa-solid fa-network-wired text-brand-teal w-5 text-center"></i>
+                            <a href="services.html#zerotrust" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-network-wired text-brand-cyan w-5 text-center"></i>
                                 <div><div class="font-bold text-xs">Zero Trust & VPN Tunnels</div></div>
                             </a>
-                            <a href="services.html#cctv" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-teal transition">
-                                <i class="fa-solid fa-video text-brand-teal w-5 text-center"></i>
+                            <a href="services.html#cctv" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-video text-brand-cyan w-5 text-center"></i>
                                 <div><div class="font-bold text-xs">IP CCTV Surveillance</div></div>
                             </a>
                         </div>
@@ -102,11 +115,11 @@
                     <a href="clients.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Clients & Trust</a>
                     <a href="calculator.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Cost Estimator</a>
                     <a href="portfolio.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Case Studies</a>
-                    <a href="contact.html" class="px-4 py-2 rounded-lg bg-brand-teal/10 text-brand-teal font-semibold border border-brand-teal/20">Contact</a>
+                    <a href="contact.html" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand-cyan/10 to-brand-teal/10 text-brand-cyan font-semibold border border-brand-cyan/30">Contact</a>
                 </nav>
 
                 <div class="hidden md:flex items-center gap-3">
-                    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-brand-teal hover:bg-brand-darkTeal text-slate-950 font-bold transition shadow-lg shadow-brand-teal/20">
+                    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal hover:opacity-90 text-slate-950 font-bold transition shadow-lg shadow-brand-cyan/25">
                         Book Infrastructure Audit
                     </a>
                 </div>
@@ -122,128 +135,178 @@
             <a href="clients.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Clients & Trust</a>
             <a href="calculator.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Cost Estimator</a>
             <a href="portfolio.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Case Studies</a>
-            <a href="contact.html" class="block px-3 py-2 rounded-md bg-brand-teal/10 text-brand-teal font-semibold">Contact</a>
-            <a href="contact.html" class="block w-full text-center mt-4 px-4 py-2.5 rounded-lg bg-brand-teal text-slate-950 font-bold">Book Infrastructure Audit</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-md bg-brand-cyan/10 text-brand-cyan font-semibold">Contact</a>
+            <a href="contact.html" class="block w-full text-center mt-4 px-4 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold">Book Infrastructure Audit</a>
         </div>
     </header>
 
     <!-- PAGE TITLE -->
-    <section class="py-12 bg-slate-900/60 border-b border-slate-800 text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <span class="text-brand-teal font-semibold text-xs uppercase tracking-widest">Get In Touch</span>
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Book an Infrastructure Audit & Consultation</h1>
-            <p class="text-slate-400 text-sm mt-2">Connect directly with VNE.IT engineers for your enterprise server, network security, or CCTV project.</p>
+    <section class="py-16 contact-bg border-b border-slate-800 text-center relative">
+        <div class="max-w-4xl mx-auto px-4 relative z-10 slide-up scroll-animate">
+            <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Get In Touch</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white mt-3 mb-2 tracking-tight">Book an Infrastructure Audit & Consultation</h1>
+            <p class="text-slate-300 text-sm sm:text-base">Connect directly with VNE.IT engineers for your enterprise server, network security, or CCTV project.</p>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-10">
+    <!-- CONTACT SECTION WITH BACKGROUND -->
+    <section class="py-20 contact-bg border-b border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
             
-            <!-- Contact Info Box -->
-            <div class="lg:col-span-5 bg-brand-cardBg border border-slate-800 rounded-2xl p-8 space-y-8">
-                <div>
-                    <h3 class="text-xl font-extrabold text-white mb-2">Network Operation Center</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">Our lead engineers are available 24/7 for emergency IT support, virtual tunnel maintenance, and enterprise consultations.</p>
+            <div class="grid lg:grid-cols-12 gap-10">
+                
+                <!-- Contact Info & WhatsApp Direct Box -->
+                <div class="lg:col-span-5 bg-brand-cardBg/95 backdrop-blur-md border border-slate-800 rounded-2xl p-8 space-y-8 slide-left scroll-animate shadow-2xl">
+                    <div>
+                        <h3 class="text-xl font-extrabold text-white mb-2">Network Operation Center</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Our lead engineers are available 24/7 for emergency IT support, virtual tunnel maintenance, and enterprise consultations.</p>
+                    </div>
+
+                    <div class="space-y-6 text-sm">
+                        <!-- WhatsApp Direct Chat Link -->
+                        <a href="https://wa.me/923000000000?text=Hello%20VNE.IT%20Team,%20I%20would%20like%20to%20discuss%20an%20infrastructure%20consultation." target="_blank" class="flex items-center gap-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition group">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500 text-slate-950 flex items-center justify-center text-xl shrink-0 font-bold shadow-lg shadow-emerald-500/30 group-hover:scale-105 transition-transform">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-emerald-400 uppercase font-mono font-bold">Instant WhatsApp Chat</div>
+                                <div class="text-white font-bold font-mono mt-0.5">+92 300 0000000</div>
+                                <div class="text-[10px] text-slate-400 mt-0.5">Click to chat directly with engineers</div>
+                            </div>
+                        </a>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 uppercase font-mono">Email Support</div>
+                                <div class="text-white font-bold font-mono mt-0.5">support@vnedigital.com</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan shrink-0">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 uppercase font-mono">Web Portals</div>
+                                <div class="text-white font-bold font-mono mt-0.5">vnedigital.com | labs.vnedigital.com</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 uppercase font-mono">Operations Base</div>
+                                <div class="text-white font-bold mt-0.5">Karachi, Pakistan (Global Remote Managed IT)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-xs space-y-2 font-mono">
+                        <div class="text-brand-cyan font-bold flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brand-cyan animate-ping"></span> 24/7 NOC Active
+                        </div>
+                        <p class="text-slate-400">Response time for critical infrastructure alerts: &lt; 15 minutes.</p>
+                    </div>
                 </div>
 
-                <div class="space-y-6 text-sm">
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center text-brand-teal shrink-0">
-                            <i class="fa-solid fa-envelope"></i>
+                <!-- Booking Form -->
+                <div class="lg:col-span-7 bg-brand-cardBg/95 backdrop-blur-md border border-slate-800 rounded-2xl p-8 slide-right scroll-animate shadow-2xl">
+                    <form id="contactForm" class="space-y-6" onsubmit="handleSubmit(event)">
+                        <h3 class="text-xl font-extrabold text-white">Consultation Request Form</h3>
+                        
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs uppercase font-mono text-slate-300 mb-2">Your Name *</label>
+                                <input type="text" required placeholder="Muhammad Saqib" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-cyan focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase font-mono text-slate-300 mb-2">Email Address *</label>
+                                <input type="email" required placeholder="saqib@vnedigital.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-cyan focus:outline-none">
+                            </div>
                         </div>
-                        <div>
-                            <div class="text-xs text-slate-400 uppercase font-mono">Email Support</div>
-                            <div class="text-white font-bold font-mono mt-0.5">support@vnedigital.com</div>
-                        </div>
-                    </div>
 
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center text-brand-teal shrink-0">
-                            <i class="fa-solid fa-globe"></i>
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs uppercase font-mono text-slate-300 mb-2">Phone / WhatsApp</label>
+                                <input type="text" placeholder="+92 300 0000000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-cyan focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase font-mono text-slate-300 mb-2">Required Service</label>
+                                <select class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-cyan focus:outline-none">
+                                    <option>VMware ESXi / Proxmox Virtualization</option>
+                                    <option>pfSense Firewall & Security Setup</option>
+                                    <option>Cloudflare Zero Trust VPN Tunnels</option>
+                                    <option>Tiandy IP CCTV Surveillance NVR</option>
+                                    <option>Full-Stack Web & POS Development</option>
+                                </select>
+                            </div>
                         </div>
-                        <div>
-                            <div class="text-xs text-slate-400 uppercase font-mono">Web Portals</div>
-                            <div class="text-white font-bold font-mono mt-0.5">vnedigital.com | labs.vnedigital.com</div>
-                        </div>
-                    </div>
 
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center text-brand-teal shrink-0">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
                         <div>
-                            <div class="text-xs text-slate-400 uppercase font-mono">Operations Base</div>
-                            <div class="text-white font-bold mt-0.5">Karachi, Pakistan (Global Remote Managed IT)</div>
+                            <label class="block text-xs uppercase font-mono text-slate-300 mb-2">Project Details & Infrastructure Requirements *</label>
+                            <textarea required rows="4" placeholder="Describe your network layout, branch locations, or software requirements..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-cyan focus:outline-none"></textarea>
                         </div>
-                    </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-extrabold transition shadow-lg shadow-brand-cyan/25 hover:opacity-90">
+                            Submit Consultation Request
+                        </button>
+
+                        <div id="successAlert" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono text-center">
+                            <i class="fa-solid fa-circle-check mr-1"></i> Request received successfully! Our NOC team will get in touch within 2 hours.
+                        </div>
+                    </form>
                 </div>
 
-                <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-2 font-mono">
-                    <div class="text-brand-teal font-bold flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-brand-teal animate-ping"></span> 24/7 NOC Active
-                    </div>
-                    <p class="text-slate-400">Response time for critical infrastructure alerts: &lt; 15 minutes.</p>
-                </div>
             </div>
 
-            <!-- Booking Form -->
-            <div class="lg:col-span-7 bg-brand-cardBg border border-slate-800 rounded-2xl p-8">
-                <form id="contactForm" class="space-y-6" onsubmit="handleSubmit(event)">
-                    <h3 class="text-xl font-extrabold text-white">Consultation Request Form</h3>
-                    
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs uppercase font-mono text-slate-300 mb-2">Your Name *</label>
-                            <input type="text" required placeholder="Muhammad Saqib" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-teal focus:outline-none">
-                        </div>
-                        <div>
-                            <label class="block text-xs uppercase font-mono text-slate-300 mb-2">Email Address *</label>
-                            <input type="email" required placeholder="saqib@vnedigital.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-teal focus:outline-none">
-                        </div>
-                    </div>
-
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs uppercase font-mono text-slate-300 mb-2">Phone / WhatsApp</label>
-                            <input type="text" placeholder="+92 300 0000000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-teal focus:outline-none">
-                        </div>
-                        <div>
-                            <label class="block text-xs uppercase font-mono text-slate-300 mb-2">Required Service</label>
-                            <select class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-teal focus:outline-none">
-                                <option>VMware ESXi / Proxmox Virtualization</option>
-                                <option>pfSense Firewall & Security Setup</option>
-                                <option>Cloudflare Zero Trust VPN Tunnels</option>
-                                <option>Tiandy IP CCTV Surveillance NVR</option>
-                                <option>Full-Stack Web & POS Development</option>
-                            </select>
-                        </div>
-                    </div>
-
+            <!-- INTERACTIVE LOCATION MAP SECTION -->
+            <div class="bg-brand-cardBg/95 backdrop-blur-md border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 slide-up scroll-animate shadow-2xl">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-800 pb-4">
                     <div>
-                        <label class="block text-xs uppercase font-mono text-slate-300 mb-2">Project Details & Infrastructure Requirements *</label>
-                        <textarea required rows="4" placeholder="Describe your network layout, branch locations, or software requirements..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-teal focus:outline-none"></textarea>
+                        <h3 class="text-xl font-extrabold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-map-location-dot text-brand-cyan"></i> Our Operations Base & Service Hub
+                        </h3>
+                        <p class="text-slate-400 text-xs mt-1">Karachi, Pakistan — Serving clients locally and providing remote managed infrastructure globally.</p>
                     </div>
+                    <a href="https://maps.google.com/?q=Karachi,Pakistan" target="_blank" class="px-4 py-2 rounded-lg bg-slate-900 border border-slate-700 text-brand-cyan text-xs font-mono font-bold hover:bg-slate-800 transition inline-flex items-center gap-2">
+                        <span>Open in Google Maps</span>
+                        <i class="fa-solid fa-external-link text-[10px]"></i>
+                    </a>
+                </div>
 
-                    <button type="submit" class="w-full py-4 rounded-xl bg-brand-teal hover:bg-brand-darkTeal text-slate-950 font-extrabold transition shadow-lg shadow-brand-teal/20">
-                        Submit Consultation Request
-                    </button>
-
-                    <div id="successAlert" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono text-center">
-                        <i class="fa-solid fa-circle-check mr-1"></i> Request received successfully! Our NOC team will get in touch within 2 hours.
-                    </div>
-                </form>
+                <!-- Google Map Embed -->
+                <div class="w-full h-80 sm:h-96 rounded-xl overflow-hidden border border-slate-700/80 shadow-inner">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462118.0243171351!2d66.82424911044716!3d24.86073420807755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e06651d4bbf%3A0x9cf92f44555a0c98!2sKarachi%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
 
         </div>
     </section>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/923000000000?text=Hello%20VNE.IT,%20I%20need%20assistance%20with%20my%20IT%20infrastructure." target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-2xl shadow-2xl shadow-emerald-500/50 hover:scale-110 transition-transform duration-300" title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <!-- FOOTER -->
     <footer class="mt-auto bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="space-y-3">
                 <div class="flex items-center gap-2">
-                    <span class="text-xl font-bold text-white">It.<span class="text-brand-teal">VNE</span></span>
+                    <span class="text-xl font-bold text-white">It.<span class="text-brand-cyan">VNE</span></span>
                 </div>
                 <p class="text-slate-500 leading-relaxed">Virtual Network Experts — Specializing in Virtualization, Network Security, Zero-Trust Architecture & Infrastructure Operations.</p>
                 <div class="text-slate-500">A sub-brand of <strong class="text-slate-300">VNE Digital</strong></div>
@@ -251,22 +314,20 @@
             <div>
                 <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Quick Links</h4>
                 <ul class="space-y-2">
-                    <li><a href="index.html" class="hover:text-brand-teal transition">Home</a></li>
-                    <li><a href="about.html" class="hover:text-brand-teal transition">About Us</a></li>
-                    <li><a href="services.html" class="hover:text-brand-teal transition">Services</a></li>
-                    <li><a href="clients.html" class="hover:text-brand-teal transition">Clients & Trust</a></li>
-                    <li><a href="calculator.html" class="hover:text-brand-teal transition">Cost Estimator</a></li>
-                    <li><a href="portfolio.html" class="hover:text-brand-teal transition">Case Studies</a></li>
-                    <li><a href="contact.html" class="hover:text-brand-teal transition">Contact Us</a></li>
+                    <li><a href="index.html" class="hover:text-brand-cyan transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-brand-cyan transition">About Us</a></li>
+                    <li><a href="services.html" class="hover:text-brand-cyan transition">Services</a></li>
+                    <li><a href="clients.html" class="hover:text-brand-cyan transition">Clients & Trust</a></li>
+                    <li><a href="contact.html" class="hover:text-brand-cyan transition">Contact Us</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Core Solutions</h4>
                 <ul class="space-y-2">
-                    <li><a href="services.html#virtualization" class="hover:text-brand-teal transition">VMware & Proxmox Setup</a></li>
-                    <li><a href="services.html#pfsense" class="hover:text-brand-teal transition">pfSense Firewall Router</a></li>
-                    <li><a href="services.html#zerotrust" class="hover:text-brand-teal transition">Cloudflare Zero Trust</a></li>
-                    <li><a href="services.html#cctv" class="hover:text-brand-teal transition">CCTV Surveillance & NVR</a></li>
+                    <li><a href="services.html#virtualization" class="hover:text-brand-cyan transition">VMware & Proxmox Setup</a></li>
+                    <li><a href="services.html#pfsense" class="hover:text-brand-cyan transition">pfSense Firewall Router</a></li>
+                    <li><a href="services.html#zerotrust" class="hover:text-brand-cyan transition">Cloudflare Zero Trust</a></li>
+                    <li><a href="services.html#cctv" class="hover:text-brand-cyan transition">CCTV Surveillance & NVR</a></li>
                 </ul>
             </div>
             <div>
@@ -281,13 +342,24 @@
         </div>
     </footer>
 
-    <!-- Form Handler Script -->
+    <!-- Interactive Scripts & Animations -->
     <script>
         function handleSubmit(e) {
             e.preventDefault();
             document.getElementById('successAlert').classList.remove('hidden');
             document.getElementById('contactForm').reset();
         }
+
+        // Scroll Observer for Slide Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
 
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
