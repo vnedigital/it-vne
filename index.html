@@ -35,29 +35,39 @@
         .glow-teal { box-shadow: 0 0 25px rgba(0, 208, 156, 0.25); }
         .glow-text { text-shadow: 0 0 12px rgba(0, 208, 156, 0.4); }
         .dropdown:hover .dropdown-menu { display: block; }
+        #networkCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
     </style>
 </head>
 <body class="bg-brand-charcoal text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-cyan selection:text-black">
 
-    <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-slate-950/80 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <!-- LIVE STATUS TICKER BAR -->
+    <div class="bg-slate-950/90 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
             <div class="flex items-center gap-3">
                 <span class="flex h-2 w-2 relative">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
                 </span>
-                <span><strong>NOC Status:</strong> All Virtual Tunnels & Infrastructure Systems Operational (99.99%)</span>
+                <span><strong>NOC Status:</strong> All Tunnels Operational (99.99%)</span>
             </div>
-            <div class="hidden sm:flex items-center gap-4">
-                <span><i class="fa-solid fa-headset text-brand-cyan mr-1"></i> 24/7 Managed NOC</span>
-                <span><i class="fa-solid fa-envelope text-brand-cyan mr-1"></i> support@vnedigital.com</span>
+            <div class="flex items-center gap-6 font-mono text-[11px]">
+                <span class="text-emerald-400"><i class="fa-solid fa-signal mr-1"></i> HQ Ping: <span id="pingVal">11</span>ms</span>
+                <span class="text-cyan-400"><i class="fa-solid fa-gauge-high mr-1"></i> Speed: <span id="speedVal">940</span> Mbps</span>
+                <button onclick="openSupportModal()" class="text-brand-cyan hover:underline font-bold"><i class="fa-solid fa-headset mr-1"></i> Raise Ticket</button>
             </div>
         </div>
     </div>
 
     <!-- NAVIGATION HEADER -->
-    <header class="sticky top-0 z-50 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
+    <header class="sticky top-0 z-40 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Brand Logo with Image -->
@@ -128,6 +138,7 @@
             <a href="index.html" class="block px-3 py-2 rounded-md bg-brand-cyan/10 text-brand-cyan font-semibold">Home</a>
             <a href="about.html" class="block px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">About</a>
             <a href="services.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Services</a>
+            <a href="clients.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Clients & Trust</a>
             <a href="calculator.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Cost Estimator</a>
             <a href="portfolio.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Case Studies</a>
             <a href="contact.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Contact</a>
@@ -161,10 +172,10 @@
                             <i class="fa-solid fa-calculator"></i>
                             <span>Calculate Infrastructure Cost</span>
                         </a>
-                        <a href="services.html" class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition flex items-center gap-2">
-                            <span>Explore Services</span>
-                            <i class="fa-solid fa-chevron-right text-xs text-brand-cyan"></i>
-                        </a>
+                        <button onclick="runSpeedTestModal()" class="px-6 py-3.5 rounded-xl bg-brand-cardBg hover:bg-slate-800 text-white font-bold border border-brand-cyan/30 transition flex items-center gap-2 shadow-lg">
+                            <i class="fa-solid fa-gauge text-brand-cyan"></i>
+                            <span>Run Network Speed Test</span>
+                        </button>
                     </div>
 
                     <!-- Tech Badges -->
@@ -210,6 +221,64 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE ARCHITECTURE TOPOLOGY MAP SECTION -->
+    <section class="py-20 bg-slate-900/60 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest">Live Topology</span>
+                <h2 class="text-3xl font-extrabold text-white">Interactive Enterprise Architecture Node Map</h2>
+                <p class="text-slate-400 text-sm">Click nodes below to inspect live routing specs and encryption standards across our deployed infrastructure.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6 font-mono text-xs">
+                <div onclick="inspectNode('ESXi Hypervisor', 'VMware ESXi Enterprise running on dual Xeon nodes with NVMe RAID storage and vSwitch LAN mapping.')" class="bg-brand-cardBg border border-slate-800 p-6 rounded-2xl cursor-pointer hover:border-brand-cyan transition space-y-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-lg group-hover:bg-brand-cyan group-hover:text-black transition">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <div class="font-bold text-white text-sm">1. VMware ESXi Host</div>
+                    <p class="text-slate-400 text-[11px]">Bare-metal hypervisor root node.</p>
+                    <span class="text-brand-cyan inline-block pt-1">&rarr; Inspect Specs</span>
+                </div>
+
+                <div onclick="inspectNode('pfSense Firewall Gateway', 'Custom pfSense Gateway routing dual-WAN failover with Snort IDS and automated block rules.')" class="bg-brand-cardBg border border-slate-800 p-6 rounded-2xl cursor-pointer hover:border-brand-cyan transition space-y-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-lg group-hover:bg-brand-cyan group-hover:text-black transition">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="font-bold text-white text-sm">2. pfSense Gateway</div>
+                    <p class="text-slate-400 text-[11px]">Firewall router & packet filter.</p>
+                    <span class="text-brand-cyan inline-block pt-1">&rarr; Inspect Specs</span>
+                </div>
+
+                <div onclick="inspectNode('Cloudflare Zero Trust Tunnel', 'Encrypted AES-256 secure tunnel connecting remote branch POS databases to HQ without exposed ports.')" class="bg-brand-cardBg border border-slate-800 p-6 rounded-2xl cursor-pointer hover:border-brand-cyan transition space-y-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-lg group-hover:bg-brand-cyan group-hover:text-black transition">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <div class="font-bold text-white text-sm">3. Zero Trust Mesh</div>
+                    <p class="text-slate-400 text-[11px]">Encrypted site-to-site tunnel.</p>
+                    <span class="text-brand-cyan inline-block pt-1">&rarr; Inspect Specs</span>
+                </div>
+
+                <div onclick="inspectNode('Tiandy IP CCTV Surveillance', '20-channel NVR with static IP binding, RTSP streaming, and EasyLive Plus mobile app sync.')" class="bg-brand-cardBg border border-slate-800 p-6 rounded-2xl cursor-pointer hover:border-brand-cyan transition space-y-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-lg group-hover:bg-brand-cyan group-hover:text-black transition">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <div class="font-bold text-white text-sm">4. Tiandy CCTV NVR</div>
+                    <p class="text-slate-400 text-[11px]">Surveillance & AI streaming.</p>
+                    <span class="text-brand-cyan inline-block pt-1">&rarr; Inspect Specs</span>
+                </div>
+            </div>
+
+            <!-- Node Inspector Box -->
+            <div id="nodeInspectorBox" class="hidden bg-slate-900 border border-brand-cyan/40 p-6 rounded-2xl font-mono text-xs space-y-2">
+                <div class="text-brand-cyan font-bold text-sm flex justify-between items-center">
+                    <span id="inspectTitle">Node Details</span>
+                    <button onclick="document.getElementById('nodeInspectorBox').classList.add('hidden')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <p id="inspectDesc" class="text-slate-300"></p>
             </div>
         </div>
     </section>
@@ -267,29 +336,50 @@
         </div>
     </section>
 
-    <!-- STATS BANNER -->
-    <section class="py-12 border-y border-slate-800 bg-brand-charcoal">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <!-- SUPPORT TICKETING MODAL -->
+    <div id="supportModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-brand-cardBg border border-slate-700 rounded-2xl p-6 sm:p-8 max-w-md w-full space-y-6 relative">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+                <h3 class="text-lg font-extrabold text-white flex items-center gap-2"><i class="fa-solid fa-headset text-brand-cyan"></i> Raise Support Ticket</h3>
+                <button onclick="closeSupportModal()" class="text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form onsubmit="handleSupportSubmit(event)" class="space-y-4 text-xs font-mono">
                 <div>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal font-mono">99.99%</div>
-                    <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Network Uptime SLA</div>
+                    <label class="block text-slate-300 mb-1">Company / Name *</label>
+                    <input type="text" required placeholder="Juice4Fun POS" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:border-brand-cyan focus:outline-none">
                 </div>
                 <div>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal font-mono">150+</div>
-                    <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">VMware Nodes Deployed</div>
+                    <label class="block text-slate-300 mb-1">Issue Category</label>
+                    <select class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:border-brand-cyan focus:outline-none">
+                        <option>VMware / Server Downtime</option>
+                        <option>Cloudflare Tunnel / VPN Sync</option>
+                        <option>pfSense Firewall Rule Update</option>
+                        <option>CCTV NVR Stream Error</option>
+                    </select>
                 </div>
                 <div>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal font-mono">&lt; 15m</div>
-                    <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">NOC Incident Response</div>
+                    <label class="block text-slate-300 mb-1">Description *</label>
+                    <textarea required rows="3" placeholder="Describe the technical issue..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white focus:border-brand-cyan focus:outline-none"></textarea>
                 </div>
-                <div>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal font-mono">50+</div>
-                    <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Enterprise Clients</div>
-                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-extrabold transition">Submit Ticket to NOC</button>
+            </form>
+            <div id="ticketSuccess" class="hidden text-center text-emerald-400 font-mono text-xs">
+                <i class="fa-solid fa-circle-check"></i> Ticket logged successfully! NOC lead assigned.
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- SPEED TEST MODAL -->
+    <div id="speedModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-brand-cardBg border border-slate-700 rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center space-y-6 font-mono">
+            <h3 class="text-lg font-extrabold text-white flex items-center justify-center gap-2"><i class="fa-solid fa-gauge-high text-brand-cyan"></i> Network Speed Diagnostic</h3>
+            <div class="py-6 space-y-2">
+                <div id="speedOutput" class="text-4xl font-black text-brand-cyan">940.2 Mbps</div>
+                <p class="text-xs text-slate-400">Direct Fiber Backbone Connection</p>
+            </div>
+            <button onclick="document.getElementById('speedModal').classList.add('hidden')" class="w-full py-2.5 rounded-xl bg-slate-800 text-white font-bold hover:bg-slate-700">Close</button>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="mt-auto bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
@@ -332,12 +422,42 @@
         </div>
     </footer>
 
-    <!-- Canvas Animation & Mobile Menu Script -->
+    <!-- Interactive Scripts & Canvas Animation -->
     <script>
         // Mobile Navigation Toggle
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        // Support Modal Functions
+        function openSupportModal() { document.getElementById('supportModal').classList.remove('hidden'); }
+        function closeSupportModal() { document.getElementById('supportModal').classList.add('hidden'); }
+        function handleSupportSubmit(e) {
+            e.preventDefault();
+            document.getElementById('ticketSuccess').classList.remove('hidden');
+            setTimeout(() => { closeSupportModal(); document.getElementById('ticketSuccess').classList.add('hidden'); }, 2000);
+        }
+
+        // Speed Test Modal
+        function runSpeedTestModal() {
+            document.getElementById('speedModal').classList.remove('hidden');
+            const out = document.getElementById('speedOutput');
+            out.innerText = "Testing...";
+            setTimeout(() => { out.innerText = (900 + Math.random() * 80).toFixed(1) + " Mbps"; }, 1000);
+        }
+
+        // Topology Node Inspector
+        function inspectNode(title, desc) {
+            const box = document.getElementById('nodeInspectorBox');
+            document.getElementById('inspectTitle').innerText = title;
+            document.getElementById('inspectDesc').innerText = desc;
+            box.classList.remove('hidden');
+        }
+
+        // Live Ping/Speed Ticker simulation
+        setInterval(() => {
+            document.getElementById('pingVal').innerText = Math.floor(10 + Math.random() * 5);
+        }, 3000);
 
         // Background Hero Particles Canvas
         const canvas = document.getElementById('heroCanvas');
@@ -361,14 +481,11 @@
 
         function drawParticles() {
             ctx.clearRect(0, 0, width, height);
-            
-            // Draw lines between close particles
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-
                     if (dist < 130) {
                         ctx.beginPath();
                         ctx.strokeStyle = `rgba(0, 229, 255, ${0.15 * (1 - dist / 130)})`;
@@ -379,21 +496,16 @@
                     }
                 }
             }
-
-            // Draw dots & update position
             particles.forEach(p => {
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
                 ctx.fillStyle = '#00E5FF';
                 ctx.fill();
-
                 p.x += p.vx;
                 p.y += p.vy;
-
                 if (p.x < 0 || p.x > width) p.vx *= -1;
                 if (p.y < 0 || p.y > height) p.vy *= -1;
             });
-
             requestAnimationFrame(drawParticles);
         }
         drawParticles();
