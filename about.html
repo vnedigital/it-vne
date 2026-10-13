@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | VNE.IT - Virtual Network Experts</title>
+    <meta name="description" content="Learn about VNE.IT, a specialized sub-brand of VNE Digital delivering enterprise network infrastructure and virtualization expertise.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            teal: '#00D09C',
+                            darkTeal: '#009e76',
+                            charcoal: '#181A20',
+                            cardBg: '#20242D',
+                            slateAccent: '#2B303C'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .dropdown:hover .dropdown-menu { display: block; }
+    </style>
+</head>
+<body class="bg-brand-charcoal text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-teal selection:text-black">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-slate-900 border-b border-slate-800 text-xs py-2 px-4 text-slate-400">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-teal opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-teal"></span>
+                </span>
+                <span><strong>NOC Status:</strong> All Virtual Tunnels & Infrastructure Systems Operational (99.99%)</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-4">
+                <span><i class="fa-solid fa-headset text-brand-teal mr-1"></i> 24/7 Managed NOC</span>
+                <span><i class="fa-solid fa-envelope text-brand-teal mr-1"></i> support@vnedigital.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="sticky top-0 z-50 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center text-brand-teal text-xl font-bold group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-check-double"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-extrabold tracking-tight text-white flex items-center gap-1">
+                            It.<span class="text-brand-teal">VNE</span>
+                        </span>
+                        <span class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold">Virtual Network Experts</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-1 text-sm font-medium">
+                    <a href="index.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Home</a>
+                    <a href="about.html" class="px-4 py-2 rounded-lg bg-brand-teal/10 text-brand-teal font-semibold border border-brand-teal/20">About</a>
+                    
+                    <div class="relative dropdown">
+                        <a href="services.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition inline-flex items-center gap-1">
+                            <span>Services</span>
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg border border-slate-700 shadow-2xl p-2 z-50">
+                            <a href="services.html#virtualization" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-teal transition">
+                                <i class="fa-solid fa-server text-brand-teal w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">VMware & Proxmox</div></div>
+                            </a>
+                            <a href="services.html#pfsense" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-teal transition">
+                                <i class="fa-solid fa-shield-halved text-brand-teal w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">pfSense & Firewalls</div></div>
+                            </a>
+                            <a href="services.html#zerotrust" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-teal transition">
+                                <i class="fa-solid fa-network-wired text-brand-teal w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">Zero Trust & VPN Tunnels</div></div>
+                            </a>
+                            <a href="services.html#cctv" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-teal transition">
+                                <i class="fa-solid fa-video text-brand-teal w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">IP CCTV Surveillance</div></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="calculator.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Cost Estimator</a>
+                    <a href="portfolio.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Case Studies</a>
+                    <a href="contact.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Contact</a>
+                </nav>
+
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-brand-teal hover:bg-brand-darkTeal text-slate-950 font-bold transition shadow-lg shadow-brand-teal/20">
+                        Book Infrastructure Audit
+                    </a>
+                </div>
+
+                <button id="mobileMenuBtn" class="md:hidden text-slate-300 text-2xl p-2"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-cardBg border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block px-3 py-2 rounded-md text-slate-300">Home</a>
+            <a href="about.html" class="block px-3 py-2 rounded-md bg-brand-teal/10 text-brand-teal font-semibold">About</a>
+            <a href="services.html" class="block px-3 py-2 rounded-md text-slate-300">Services</a>
+            <a href="calculator.html" class="block px-3 py-2 rounded-md text-slate-300">Cost Estimator</a>
+            <a href="portfolio.html" class="block px-3 py-2 rounded-md text-slate-300">Case Studies</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-md text-slate-300">Contact</a>
+        </div>
+    </header>
+
+    <!-- PAGE TITLE -->
+    <section class="py-12 bg-slate-900/60 border-b border-slate-800 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <span class="text-brand-teal font-semibold text-xs uppercase tracking-widest">About VNE.IT</span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Virtual Network Experts & Infrastructure Engineering</h1>
+            <p class="text-slate-400 text-sm mt-2">Delivering resilient digital infrastructure, advanced networking, and secure multi-branch architectures.</p>
+        </div>
+    </section>
+
+    <!-- ABOUT CONTENT SECTION -->
+    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <span class="text-brand-teal font-mono text-xs uppercase tracking-wider bg-brand-teal/10 px-3 py-1 rounded border border-brand-teal/30">Who We Are</span>
+                <h2 class="text-3xl font-extrabold text-white">Engineering Resilient IT Systems for Modern Enterprises</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    <strong>VNE.IT</strong> operates as the specialized infrastructure and managed networking sub-brand of <strong class="text-white">VNE Digital</strong>. We focus on bridging the gap between hardware server virtualization, robust perimeter security, and seamless multi-location connectivity.
+                </p>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Led by experienced system architects, our mission is to eliminate network downtime, secure sensitive corporate databases using zero-trust tunnels, and empower businesses with reliable 24/7 Network Operations Center (NOC) oversight.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-4 pt-2 text-xs font-mono text-slate-300">
+                    <div class="bg-brand-cardBg p-4 rounded-xl border border-slate-800 flex items-center gap-3">
+                        <i class="fa-solid fa-server text-brand-teal text-lg"></i>
+                        <div><strong class="text-white block">Bare-Metal Hypervisors</strong> VMware ESXi & Proxmox</div>
+                    </div>
+                    <div class="bg-brand-cardBg p-4 rounded-xl border border-slate-800 flex items-center gap-3">
+                        <i class="fa-solid fa-shield-halved text-brand-teal text-lg"></i>
+                        <div><strong class="text-white block">Perimeter Defense</strong> pfSense Firewalls & Tunnels</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-slate-900 border border-slate-700/80 rounded-2xl p-6 font-mono text-xs space-y-4">
+                <div class="text-brand-teal font-bold border-b border-slate-800 pb-3 flex justify-between items-center">
+                    <span>VNE.IT Core Standards</span>
+                    <span>[ISO READY]</span>
+                </div>
+                <div class="space-y-3 text-slate-300">
+                    <div class="flex items-start gap-2">
+                        <i class="fa-solid fa-check text-brand-teal mt-0.5"></i>
+                        <div><strong>Zero Public Exposure:</strong> All internal databases are shielded behind Cloudflare Zero-Trust mesh VPNs.</div>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fa-solid fa-check text-brand-teal mt-0.5"></i>
+                        <div><strong>High Availability:</strong> Redundant gateway routing and automated host failover mechanisms.</div>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fa-solid fa-check text-brand-teal mt-0.5"></i>
+                        <div><strong>Proactive NOC:</strong> Real-time latency tracking and incident response under 15 minutes.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold text-white">It.<span class="text-brand-teal">VNE</span></span>
+                </div>
+                <p class="text-slate-500 leading-relaxed">Virtual Network Experts — Specializing in Virtualization, Network Security, Zero-Trust Architecture & Infrastructure Operations.</p>
+                <div class="text-slate-500">A sub-brand of <strong class="text-slate-300">VNE Digital</strong></div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-brand-teal transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-brand-teal transition">About Us</a></li>
+                    <li><a href="services.html" class="hover:text-brand-teal transition">Services</a></li>
+                    <li><a href="calculator.html" class="hover:text-brand-teal transition">Cost Estimator</a></li>
+                    <li><a href="contact.html" class="hover:text-brand-teal transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Core Solutions</h4>
+                <ul class="space-y-2">
+                    <li><a href="services.html#virtualization" class="hover:text-brand-teal transition">VMware & Proxmox Setup</a></li>
+                    <li><a href="services.html#pfsense" class="hover:text-brand-teal transition">pfSense Firewall Router</a></li>
+                    <li><a href="services.html#zerotrust" class="hover:text-brand-teal transition">Cloudflare Zero Trust</a></li>
+                    <li><a href="services.html#cctv" class="hover:text-brand-teal transition">CCTV Surveillance & NVR</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Network Operation Center</h4>
+                <p class="text-slate-500 mb-2">Karachi, Pakistan / Remote Global Managed IT</p>
+                <p class="text-slate-300 font-mono">Email: support@vnedigital.com</p>
+                <p class="text-slate-300 font-mono mt-1">Web: labs.vnedigital.com</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-900 text-center text-slate-600">
+            &copy; 2026 VNE.IT (Virtual Network Experts) - VNE Digital. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>
