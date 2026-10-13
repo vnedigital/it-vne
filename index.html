@@ -71,12 +71,38 @@
                     </div>
                 </a>
 
-                <!-- Desktop Navigation -->
-                <!-- Desktop Navigation -->
+              <!-- Desktop Navigation -->
 <nav class="hidden md:flex items-center space-x-1 text-sm font-medium">
-    <a href="index.html" class="px-4 py-2 rounded-lg bg-brand-teal/10 text-brand-teal font-semibold border border-brand-teal/20">Home</a>
+    <a href="index.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Home</a>
     <a href="about.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">About</a>
-    <a href="services.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Services</a>
+    
+    <!-- SERVICES DROPDOWN MENU -->
+    <div class="relative dropdown">
+        <a href="services.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition inline-flex items-center gap-1">
+            <span>Services</span>
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+        </a>
+        <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg border border-slate-700 shadow-2xl p-2 z-50">
+            <a href="services.html#virtualization" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-teal transition">
+                <i class="fa-solid fa-server text-brand-teal w-5 text-center"></i>
+                <div><div class="font-bold text-xs">VMware & Proxmox</div></div>
+            </a>
+            <a href="services.html#pfsense" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-teal transition">
+                <i class="fa-solid fa-shield-halved text-brand-teal w-5 text-center"></i>
+                <div><div class="font-bold text-xs">pfSense & Firewalls</div></div>
+            </a>
+            <a href="services.html#zerotrust" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-teal transition">
+                <i class="fa-solid fa-network-wired text-brand-teal w-5 text-center"></i>
+                <div><div class="font-bold text-xs">Zero Trust & VPN Tunnels</div></div>
+            </a>
+            <a href="services.html#cctv" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-teal transition">
+                <i class="fa-solid fa-video text-brand-teal w-5 text-center"></i>
+                <div><div class="font-bold text-xs">IP CCTV Surveillance</div></div>
+            </a>
+        </div>
+    </div>
+
+    <a href="clients.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Clients & Trust</a>
     <a href="calculator.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Cost Estimator</a>
     <a href="portfolio.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Case Studies</a>
     <a href="contact.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Contact</a>
