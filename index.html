@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNE.IT | Virtual Network Experts - Managed IT & Infrastructure Solutions</title>
+    <meta name="description" content="Enterprise Managed IT Services, Virtualization, Cloud Tunnels, pfSense Firewalls & Security Infrastructure by VNE.IT.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            teal: '#00D09C',
+                            darkTeal: '#009e76',
+                            charcoal: '#181A20',
+                            cardBg: '#20242D',
+                            slateAccent: '#2B303C'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .glow-teal { box-shadow: 0 0 25px rgba(0, 208, 156, 0.25); }
+        .glow-text { text-shadow: 0 0 12px rgba(0, 208, 156, 0.4); }
+    </style>
+</head>
+<body class="bg-brand-charcoal text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-teal selection:text-black">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-slate-900 border-b border-slate-800 text-xs py-2 px-4 text-slate-400">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-teal opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-teal"></span>
+                </span>
+                <span><strong>NOC Status:</strong> All Virtual Tunnels & Infrastructure Systems Operational (99.99%)</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-4">
+                <span><i class="fa-solid fa-headset text-brand-teal mr-1"></i> 24/7 Managed NOC</span>
+                <span><i class="fa-solid fa-envelope text-brand-teal mr-1"></i> support@vnedigital.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="sticky top-0 z-50 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center text-brand-teal text-xl font-bold group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-check-double"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-extrabold tracking-tight text-white flex items-center gap-1">
+                            It.<span class="text-brand-teal">VNE</span>
+                        </span>
+                        <span class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold">Virtual Network Experts</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-1 text-sm font-medium">
+                    <a href="index.html" class="px-4 py-2 rounded-lg bg-brand-teal/10 text-brand-teal font-semibold border border-brand-teal/20">Home</a>
+                    <a href="services.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Services</a>
+                    <a href="calculator.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Cost Estimator</a>
+                    <a href="portfolio.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Case Studies</a>
+                    <a href="contact.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Contact</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-brand-teal hover:bg-brand-darkTeal text-slate-950 font-bold transition duration-200 shadow-lg shadow-brand-teal/20 flex items-center gap-2">
+                        <span>Book Infrastructure Audit</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white text-2xl p-2">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-cardBg border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block px-3 py-2 rounded-md bg-brand-teal/10 text-brand-teal font-semibold">Home</a>
+            <a href="services.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Services</a>
+            <a href="calculator.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Cost Estimator</a>
+            <a href="portfolio.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Case Studies</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Contact</a>
+            <a href="contact.html" class="block w-full text-center mt-4 px-4 py-2.5 rounded-lg bg-brand-teal text-slate-950 font-bold">Book Infrastructure Audit</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden py-20 lg:py-28 border-b border-slate-800/80">
+        <!-- Background Canvas Animation -->
+        <canvas id="heroCanvas" class="absolute inset-0 pointer-events-none opacity-40"></canvas>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column Text -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/30 text-brand-teal text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-shield-halved"></i> Enterprise Managed Networks & Infrastructure
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+                        Architecting <span class="text-brand-teal glow-text">Secure & Scalable</span> Virtual Network Systems
+                    </h1>
+                    <p class="text-lg text-slate-300 leading-relaxed max-w-2xl">
+                        VNE.IT delivers end-to-end IT infrastructure deployment, VMware ESXi / Proxmox virtualization, Zero-Trust network tunnels, pfSense enterprise firewalls, and AI-powered CCTV surveillance.
+                    </p>
+
+                    <!-- CTA Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="calculator.html" class="px-6 py-3.5 rounded-xl bg-brand-teal hover:bg-brand-darkTeal text-slate-950 font-extrabold transition duration-200 shadow-xl shadow-brand-teal/20 flex items-center gap-2">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>Calculate Infrastructure Cost</span>
+                        </a>
+                        <a href="services.html" class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition flex items-center gap-2">
+                            <span>Explore Services</span>
+                            <i class="fa-solid fa-chevron-right text-xs text-brand-teal"></i>
+                        </a>
+                    </div>
+
+                    <!-- Tech Badges -->
+                    <div class="pt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono">
+                        <span class="flex items-center gap-2"><i class="fa-brands fa-vmware text-brand-teal text-base"></i> VMware ESXi</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-network-wired text-brand-teal text-base"></i> Cloudflare Zero-Trust</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-shield-cat text-brand-teal text-base"></i> pfSense Firewalls</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-video text-brand-teal text-base"></i> Tiandy IP CCTV</span>
+                    </div>
+                </div>
+
+                <!-- Right Column Terminal Console Graphic -->
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-900 rounded-2xl border border-slate-700/80 shadow-2xl overflow-hidden font-mono text-xs">
+                        <!-- Console Header -->
+                        <div class="bg-slate-800 px-4 py-3 border-b border-slate-700 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                                <span class="ml-2 text-slate-400 font-sans font-bold">root@vne-noc-gateway:~</span>
+                            </div>
+                            <span class="text-brand-teal text-[10px] bg-brand-teal/10 px-2 py-0.5 rounded border border-brand-teal/30">ONLINE</span>
+                        </div>
+                        <!-- Terminal Output Content -->
+                        <div class="p-5 space-y-3 text-slate-300">
+                            <p class="text-slate-500"># Initializing VNE Zero-Trust Mesh Tunnel...</p>
+                            <p><span class="text-brand-teal">[OK]</span> Interface em0 (WAN) bound to Gateway 10.0.0.1</p>
+                            <p><span class="text-brand-teal">[OK]</span> ESXi Host vSwitch1 LAN Network Active</p>
+                            <p><span class="text-brand-teal">[OK]</span> pfSense Firewall Rules Verified (0 dropped packets)</p>
+                            <p><span class="text-brand-teal">[OK]</span> Cloudflare Tunnel Encryption Handshake Completed</p>
+                            <div class="p-3 bg-brand-charcoal/80 rounded border border-brand-teal/30 my-2">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-slate-400">Tunnel Throughput:</span>
+                                    <span class="text-brand-teal font-bold">10.4 Gbps</span>
+                                </div>
+                                <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-brand-teal h-full w-[88%] animate-pulse"></div>
+                                </div>
+                            </div>
+                            <p class="text-emerald-400 font-bold"><i class="fa-solid fa-circle-check"></i> Multi-branch Infrastructure Status: SECURE</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE SERVICES OVERVIEW GRID -->
+    <section class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+                <span class="text-brand-teal font-semibold text-xs uppercase tracking-widest">Our Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Managed Infrastructure & Security Solutions</h2>
+                <p class="text-slate-400 text-sm">Engineered to eliminate downtime, secure corporate networks, and connect remote multi-branch setups seamlessly.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-brand-cardBg border border-slate-800 hover:border-brand-teal/50 p-6 rounded-2xl transition duration-300 hover:-translate-y-1 space-y-4 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center text-brand-teal text-xl group-hover:bg-brand-teal group-hover:text-black transition">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Virtualization & ESXi</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Enterprise VMware ESXi and Proxmox hypervisor deployments with datastore allocation, ISO booting, and HA clustering.</p>
+                    <a href="services.html" class="inline-flex items-center gap-1 text-xs text-brand-teal font-semibold hover:underline">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-brand-cardBg border border-slate-800 hover:border-brand-teal/50 p-6 rounded-2xl transition duration-300 hover:-translate-y-1 space-y-4 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center text-brand-teal text-xl group-hover:bg-brand-teal group-hover:text-black transition">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">pfSense & Security</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Custom pfSense firewall routers, dual-WAN failover, WAN/LAN routing, and hardware threat prevention.</p>
+                    <a href="services.html" class="inline-flex items-center gap-1 text-xs text-brand-teal font-semibold hover:underline">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-brand-cardBg border border-slate-800 hover:border-brand-teal/50 p-6 rounded-2xl transition duration-300 hover:-translate-y-1 space-y-4 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center text-brand-teal text-xl group-hover:bg-brand-teal group-hover:text-black transition">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Zero Trust & VPN Tunnels</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Cloudflare Zero Trust tunnels, Radmin/WireGuard site-to-site VPNs, and encrypted remote access for branch offices.</p>
+                    <a href="services.html" class="inline-flex items-center gap-1 text-xs text-brand-teal font-semibold hover:underline">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-brand-cardBg border border-slate-800 hover:border-brand-teal/50 p-6 rounded-2xl transition duration-300 hover:-translate-y-1 space-y-4 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-teal/10 border border-brand-teal/30 flex items-center justify-center text-brand-teal text-xl group-hover:bg-brand-teal group-hover:text-black transition">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">IP CCTV Surveillance</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Multi-channel NVR configuration, Tiandy/Hikvision setups, port mapping, and mobile/desktop live view streaming.</p>
+                    <a href="services.html" class="inline-flex items-center gap-1 text-xs text-brand-teal font-semibold hover:underline">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BANNER -->
+    <section class="py-12 border-y border-slate-800 bg-brand-charcoal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-brand-teal font-mono">99.99%</div>
+                    <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Network Uptime SLA</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-brand-teal font-mono">150+</div>
+                    <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">VMware Nodes Deployed</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-brand-teal font-mono">&lt; 15m</div>
+                    <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">NOC Incident Response</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-brand-teal font-mono">50+</div>
+                    <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Enterprise Clients</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold text-white">It.<span class="text-brand-teal">VNE</span></span>
+                </div>
+                <p class="text-slate-500 leading-relaxed">Virtual Network Experts — Specializing in Virtualization, Network Security, Zero-Trust Architecture & Infrastructure Operations.</p>
+                <div class="text-slate-500">A sub-brand of <strong class="text-slate-300">VNE Digital</strong></div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-brand-teal transition">Home</a></li>
+                    <li><a href="services.html" class="hover:text-brand-teal transition">Services</a></li>
+                    <li><a href="calculator.html" class="hover:text-brand-teal transition">Cost Estimator</a></li>
+                    <li><a href="portfolio.html" class="hover:text-brand-teal transition">Case Studies</a></li>
+                    <li><a href="contact.html" class="hover:text-brand-teal transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Core Solutions</h4>
+                <ul class="space-y-2">
+                    <li><a href="services.html" class="hover:text-brand-teal transition">VMware & Proxmox Setup</a></li>
+                    <li><a href="services.html" class="hover:text-brand-teal transition">pfSense Firewall Router</a></li>
+                    <li><a href="services.html" class="hover:text-brand-teal transition">Cloudflare Zero Trust</a></li>
+                    <li><a href="services.html" class="hover:text-brand-teal transition">CCTV Surveillance & NVR</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Network Operation Center</h4>
+                <p class="text-slate-500 mb-2">Karachi, Pakistan / Remote Global Managed IT</p>
+                <p class="text-slate-300 font-mono">Email: support@vnedigital.com</p>
+                <p class="text-slate-300 font-mono mt-1">Web: labs.vnedigital.com</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-900 text-center text-slate-600">
+            &copy; 2026 VNE.IT (Virtual Network Experts) - VNE Digital. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Canvas Animation & Mobile Menu Script -->
+    <script>
+        // Mobile Navigation Toggle
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        // Background Hero Particles Canvas
+        const canvas = document.getElementById('heroCanvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+
+        function resizeCanvas() {
+            width = canvas.width = canvas.offsetWidth;
+            height = canvas.height = canvas.offsetHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const particles = Array.from({ length: 35 }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.8,
+            vy: (Math.random() - 0.5) * 0.8,
+            radius: Math.random() * 2 + 1
+        }));
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Draw lines between close particles
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 208, 156, ${1 - dist / 120})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Draw dots & update position
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#00D09C';
+                ctx.fill();
+
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+            });
+
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+    </script>
+</body>
+</html>
