@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | VNE.IT - Enterprise Managed IT & Infrastructure</title>
-    <meta name="description" content="Explore VNE.IT services: VMware ESXi Virtualization, pfSense Firewalls, Cloudflare Zero Trust Tunnels, and Tiandy IP CCTV Networks.">
+    <meta name="description" content="Explore VNE.IT services: VMware ESXi Virtualization, pfSense Firewalls, Cloudflare Zero Trust Tunnels, Ubiquiti Access Points, CCTV Networks, and Software Development.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -30,9 +30,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         .dropdown:hover .dropdown-menu { display: block; }
+
+        /* LIVE CANVAS BACKGROUND POSITIONING */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Content Layers */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
 
         /* Slide Animation Classes */
         .slide-left { opacity: 0; transform: translateX(-60px); transition: all 1s ease-out; }
@@ -43,8 +60,11 @@
 </head>
 <body class="bg-brand-charcoal text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-cyan selection:text-black">
 
+    <!-- LIVE ANIMATED CANVAS BACKGROUND -->
+    <canvas id="particles-canvas"></canvas>
+
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-slate-950/90 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
+    <div class="content-layer bg-slate-950/90 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <span class="flex h-2 w-2 relative">
@@ -61,7 +81,7 @@
     </div>
 
     <!-- NAVIGATION HEADER -->
-    <header class="sticky top-0 z-40 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
+    <header class="content-layer sticky top-0 z-40 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Brand Logo with Image -->
@@ -86,22 +106,34 @@
                             <span>Services</span>
                             <i class="fa-solid fa-chevron-down text-xs"></i>
                         </a>
-                        <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg border border-slate-700 shadow-2xl p-2 z-50">
-                            <a href="services.html#virtualization" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
-                                <i class="fa-solid fa-server text-brand-cyan w-5 text-center"></i>
-                                <div><div class="font-bold text-xs">VMware & Proxmox</div></div>
-                            </a>
-                            <a href="services.html#pfsense" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
-                                <i class="fa-solid fa-shield-halved text-brand-cyan w-5 text-center"></i>
-                                <div><div class="font-bold text-xs">pfSense & Firewalls</div></div>
-                            </a>
-                            <a href="services.html#zerotrust" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                        <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg/95 border border-slate-700 shadow-2xl p-2 z-50 backdrop-blur-md">
+                            <a href="services.html#networking" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
                                 <i class="fa-solid fa-network-wired text-brand-cyan w-5 text-center"></i>
-                                <div><div class="font-bold text-xs">Zero Trust & VPN Tunnels</div></div>
+                                <div><div class="font-bold text-xs">Networking, Switches & Routing</div></div>
                             </a>
-                            <a href="services.html#cctv" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                            <a href="services.html#firewall" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-shield-halved text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">pfSense Firewall & Load Balancer</div></div>
+                            </a>
+                            <a href="services.html#servers" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-server text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">Servers & Cloud Space</div></div>
+                            </a>
+                            <a href="services.html#wireless" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-wifi text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">Ubiquiti Access Points</div></div>
+                            </a>
+                            <a href="services.html#cctv" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
                                 <i class="fa-solid fa-video text-brand-cyan w-5 text-center"></i>
                                 <div><div class="font-bold text-xs">IP CCTV Surveillance</div></div>
+                            </a>
+                            <a href="services.html#development" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-code text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">Websites & Software Dev</div></div>
+                            </a>
+                            <a href="services.html#hardware" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-laptop-medical text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">Laptop & PC Repair</div></div>
                             </a>
                         </div>
                     </div>
@@ -112,32 +144,20 @@
                     <a href="contact.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Contact</a>
                 </nav>
 
-                <!-- Header Action Button -->
                 <div class="hidden md:flex items-center gap-3">
-                    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal hover:opacity-90 text-slate-950 font-bold transition duration-200 shadow-lg shadow-brand-cyan/25 flex items-center gap-2">
-                        <span>Book Infrastructure Audit</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold transition shadow-lg shadow-brand-cyan/25">
+                        Book Infrastructure Audit
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white text-2xl p-2">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                <button id="mobileMenuBtn" class="md:hidden text-slate-300 text-2xl p-2"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden md:hidden bg-brand-cardBg border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-cardBg/95 backdrop-blur-md border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
             <a href="index.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Home</a>
             <a href="about.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">About</a>
             <a href="services.html" class="block px-3 py-2 rounded-md bg-brand-cyan/10 text-brand-cyan font-semibold">Services</a>
-            <div class="pl-4 space-y-1 py-1">
-                <a href="services.html#virtualization" class="block py-1 text-xs text-slate-400 hover:text-white">VMware & Proxmox</a>
-                <a href="services.html#pfsense" class="block py-1 text-xs text-slate-400 hover:text-white">pfSense Firewalls</a>
-                <a href="services.html#zerotrust" class="block py-1 text-xs text-slate-400 hover:text-white">Zero Trust & VPN</a>
-                <a href="services.html#cctv" class="block py-1 text-xs text-slate-400 hover:text-white">IP CCTV Systems</a>
-            </div>
             <a href="clients.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Clients & Trust</a>
             <a href="calculator.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Cost Estimator</a>
             <a href="portfolio.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Case Studies</a>
@@ -146,82 +166,79 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (Data Center Image) -->
-    <section class="py-20 border-b border-slate-800 text-center relative overflow-hidden" style="background: linear-gradient(to bottom, rgba(15, 17, 23, 0.85), rgba(15, 17, 23, 0.95)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+    <!-- HERO SECTION -->
+    <section class="content-layer py-20 border-b border-slate-800 text-center relative overflow-hidden bg-brand-charcoal/40 backdrop-blur-sm">
         <div class="max-w-4xl mx-auto px-4 relative z-10 slide-up scroll-animate">
-            <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Enterprise Engineering</span>
-            <h1 class="text-3xl sm:text-5xl font-extrabold text-white mt-3 mb-3 tracking-tight">Our Technical Infrastructure Services</h1>
-            <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">From bare-metal hypervisors to zero-trust secure tunnels and AI surveillance, VNE.IT architects mission-critical digital systems.</p>
+            <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Comprehensive IT Portfolio</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white mt-3 mb-3 tracking-tight">Our Professional IT & Engineering Services</h1>
+            <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">From enterprise networking, pfSense firewalls, and server deployment to web development, hardware repair, and secure cloud storage.</p>
         </div>
     </section>
 
-    <!-- DETAILED SERVICES LIST WITH SPECIFIC BACKGROUND PICTURES -->
-    <div class="space-y-0">
+    <!-- DETAILED SERVICES SECTIONS -->
+    <div class="content-layer space-y-0">
 
-        <!-- 1. VIRTUALIZATION (Data Center / Servers Background) -->
-        <section id="virtualization" class="py-24 border-b border-slate-800 relative scroll-mt-28" style="background: linear-gradient(to bottom, rgba(15, 17, 23, 0.88), rgba(15, 17, 23, 0.94)), url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+        <!-- 1. NETWORKING, SWITCHES & ROUTING -->
+        <section id="networking" class="py-24 border-b border-slate-800 relative scroll-mt-28">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 slide-left scroll-animate">
                 <div class="bg-brand-cardBg/95 backdrop-blur-md border border-slate-800 rounded-2xl p-8 lg:p-10 shadow-2xl hover:border-brand-cyan/40 transition">
                     <div class="grid lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-7 space-y-4">
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
-                                <i class="fa-solid fa-server"></i> Server Virtualization
+                                <i class="fa-solid fa-network-wired"></i> Core Networking & Routing
                             </div>
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">VMware ESXi & Proxmox Hypervisors</h2>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Advanced Networking, Switches & Routing</h2>
                             <p class="text-slate-300 text-sm leading-relaxed">
-                                We deploy bare-metal ESXi and Proxmox hypervisor environments on dedicated rack servers. Our team handles storage datastore mapping (SSD NVMe RAID), Windows/Linux virtual machine provisioning, host networking, ISO boot drives, and snapshot backup policies.
+                                Professional structured cabling, enterprise switch configuration (VLANs, STP, Port Security), and advanced WAN/LAN routing. We ensure seamless data flow across multi-branch office buildings with zero packet loss.
                             </p>
                             <ul class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300 font-mono pt-2">
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Dual NIC Routing Setup</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> NVMe Storage Datastores</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> VM Resource Allocation</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Live Host Snapshot Backups</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Structured LAN/WAN Cabling</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Managed Switches & VLAN Setup</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Static & Dynamic Routing Protocols</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> High-Speed Backbone Optimization</li>
                             </ul>
                         </div>
                         <div class="lg:col-span-5 bg-slate-900/90 border border-slate-700/80 p-6 rounded-xl font-mono text-xs space-y-2">
                             <div class="text-brand-cyan font-bold border-b border-slate-800 pb-2 flex justify-between">
-                                <span>ESXi Host Status</span>
+                                <span>Network Topology</span>
                                 <span>[ACTIVE]</span>
                             </div>
-                            <div class="text-slate-400">vSwitch0: WAN Network Interface</div>
-                            <div class="text-slate-400">vSwitch1: LAN_Network (192.168.2.0/24)</div>
-                            <div class="text-slate-300 pt-2 font-bold">Allocated Virtual Machines:</div>
-                            <div class="pl-3 text-slate-400">&bull; FBR-SERVER (Win10 - 300GB Storage)</div>
-                            <div class="pl-3 text-slate-400">&bull; PFSENSE-GW (pfSense Firewall OS)</div>
+                            <div class="text-slate-400">Core Switch: Gigabit Managed 24/48 Port</div>
+                            <div class="text-slate-400">Subnets: Segmented VLAN 10, 20, 30</div>
+                            <div class="text-emerald-400 pt-2 font-bold"><i class="fa-solid fa-circle-check"></i> Zero Broadcast Storms Detected</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. PFSENSE FIREWALLS (Cybersecurity / Network Security Background) -->
-        <section id="pfsense" class="py-24 border-b border-slate-800 relative scroll-mt-28" style="background: linear-gradient(to bottom, rgba(15, 17, 23, 0.88), rgba(15, 17, 23, 0.94)), url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+        <!-- 2. PFSENSE FIREWALL, SECURITY & LOAD BALANCER -->
+        <section id="firewall" class="py-24 border-b border-slate-800 relative scroll-mt-28">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 slide-right scroll-animate">
                 <div class="bg-brand-cardBg/95 backdrop-blur-md border border-slate-800 rounded-2xl p-8 lg:p-10 shadow-2xl hover:border-brand-cyan/40 transition">
                     <div class="grid lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-5 order-2 lg:order-1 bg-slate-900/90 border border-slate-700/80 p-6 rounded-xl font-mono text-xs space-y-2">
                             <div class="text-brand-cyan font-bold border-b border-slate-800 pb-2 flex justify-between">
-                                <span>pfSense Live Traffic</span>
-                                <span>[FILTERING]</span>
+                                <span>Security & Load Balancer</span>
+                                <span>[PROTECTED]</span>
                             </div>
-                            <div class="text-slate-400">Interface em0 (WAN): 100 Mbps Static</div>
-                            <div class="text-slate-400">Interface em1 (LAN): 192.168.2.1 Gateway</div>
-                            <div class="text-emerald-400 pt-2 font-bold"><i class="fa-solid fa-shield"></i> Blocked DDoS Attacked Ports: 22, 3389</div>
-                            <div class="text-slate-400">Live Traffic Graph: 0 Packet Loss</div>
+                            <div class="text-slate-400">Firewall OS: pfSense Enterprise</div>
+                            <div class="text-slate-400">Multi-WAN: ISP1 + ISP2 Failover/Balance</div>
+                            <div class="text-emerald-400 pt-2 font-bold"><i class="fa-solid fa-shield-halved"></i> Enterprise Data Security Active</div>
                         </div>
                         <div class="lg:col-span-7 order-1 lg:order-2 space-y-4">
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
-                                <i class="fa-solid fa-shield-halved"></i> Firewall & Security
+                                <i class="fa-solid fa-shield"></i> Perimeter Security & Load Balancing
                             </div>
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">pfSense Hardware & Virtual Firewalls</h2>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">pfSense Firewalls, Load Balancers & Data Safety</h2>
                             <p class="text-slate-300 text-sm leading-relaxed">
-                                Complete installation and custom configuration of pfSense OS on physical hardware or ESXi virtual appliances. We configure dual WAN load balancing, NAT rules, custom LAN routing, live traffic graph widgets, and administrative security policies.
+                                We safeguard corporate data against cyber threats, ransomware, and unauthorized intrusions. We install and configure pfSense firewalls with multi-WAN load balancers to distribute internet traffic efficiently and ensure 100% uptime.
                             </p>
                             <ul class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300 font-mono pt-2">
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Multi-WAN Failover Routing</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Custom NAT Port Forwarding</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Snort / Suricata Intrusion Protection</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Admin Security Hardening</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> pfSense Installation & Tuning</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Multi-ISP Load Balancer & Failover</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Enterprise Data Safety & Backups</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Intrusion Detection & Prevention</li>
                             </ul>
                         </div>
                     </div>
@@ -229,69 +246,67 @@
             </div>
         </section>
 
-        <!-- 3. ZERO TRUST & VPN (Networking / Global Connectivity Background) -->
-        <section id="zerotrust" class="py-24 border-b border-slate-800 relative scroll-mt-28" style="background: linear-gradient(to bottom, rgba(15, 17, 23, 0.88), rgba(15, 17, 23, 0.94)), url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+        <!-- 3. SERVERS INSTALLATION & CLOUD SERVER SPACE -->
+        <section id="servers" class="py-24 border-b border-slate-800 relative scroll-mt-28">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 slide-left scroll-animate">
                 <div class="bg-brand-cardBg/95 backdrop-blur-md border border-slate-800 rounded-2xl p-8 lg:p-10 shadow-2xl hover:border-brand-cyan/40 transition">
                     <div class="grid lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-7 space-y-4">
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
-                                <i class="fa-solid fa-network-wired"></i> Remote Access Security
+                                <i class="fa-solid fa-server"></i> Servers & Cloud Infrastructure
                             </div>
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Cloudflare Zero Trust & Site-to-Site VPN</h2>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Servers Installation & Cloud Server Space</h2>
                             <p class="text-slate-300 text-sm leading-relaxed">
-                                Connect remote offices and work-from-home teams securely without exposing public ports. We implement Cloudflare Zero Trust Tunnels, Radmin VPN mesh, and encrypted WireGuard protocols for POS systems, internal databases, and attendance applications.
+                                Complete rack server hardware deployment (Dell/HP/Lenovo), RAID configuration, VMware ESXi/Proxmox installation, and dedicated Cloud Server Space provisioning for high-performance hosting and remote database accessibility.
                             </p>
                             <ul class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300 font-mono pt-2">
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Zero Public Exposed IP Attack Surface</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Multi-Branch Sync Tunnels</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Radmin & WireGuard Site Mesh</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Device Identity Authentication</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Rack Server Hardware Setup</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> RAID Array Configuration (0/1/5/10)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Cloud Server Space & Hosting</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Remote Virtual Private Servers</li>
                             </ul>
                         </div>
                         <div class="lg:col-span-5 bg-slate-900/90 border border-slate-700/80 p-6 rounded-xl font-mono text-xs space-y-2">
                             <div class="text-brand-cyan font-bold border-b border-slate-800 pb-2 flex justify-between">
-                                <span>Cloudflare Tunnel Mesh</span>
-                                <span>[CONNECTED]</span>
+                                <span>Cloud & Server Cluster</span>
+                                <span>[ONLINE]</span>
                             </div>
-                            <div class="text-slate-400">Tunnel ID: vne-zero-trust-01</div>
-                            <div class="text-slate-400">Encryption: AES-256-GCM</div>
-                            <div class="text-slate-300 pt-2 font-bold">Active Branch Tunnels:</div>
-                            <div class="pl-3 text-slate-400">&bull; Nazimabad Branch &rarr; HQ Server</div>
-                            <div class="pl-3 text-slate-400">&bull; Lalu Khet Branch &rarr; HQ Server</div>
+                            <div class="text-slate-400">Hardware: Dual Intel Xeon / i7 NVMe</div>
+                            <div class="text-slate-400">Virtualization: ESXi Hypervisor Node</div>
+                            <div class="text-slate-400">Cloud Storage: Scalable NVMe Datastores</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. IP CCTV SURVEILLANCE (Surveillance / Command Center Background) -->
-        <section id="cctv" class="py-24 border-b border-slate-800 relative scroll-mt-28" style="background: linear-gradient(to bottom, rgba(15, 17, 23, 0.88), rgba(15, 17, 23, 0.94)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+        <!-- 4. UBIQUITI ACCESS POINTS & WIRELESS -->
+        <section id="wireless" class="py-24 border-b border-slate-800 relative scroll-mt-28">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 slide-right scroll-animate">
                 <div class="bg-brand-cardBg/95 backdrop-blur-md border border-slate-800 rounded-2xl p-8 lg:p-10 shadow-2xl hover:border-brand-cyan/40 transition">
                     <div class="grid lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-5 order-2 lg:order-1 bg-slate-900/90 border border-slate-700/80 p-6 rounded-xl font-mono text-xs space-y-2">
                             <div class="text-brand-cyan font-bold border-b border-slate-800 pb-2 flex justify-between">
-                                <span>Tiandy NVR Stream</span>
-                                <span>[20 CHANNELS]</span>
+                                <span>UniFi Wireless Network</span>
+                                <span>[BROADCASTING]</span>
                             </div>
-                            <div class="text-slate-400">Device Model: Tiandy TC-R3120 2MC</div>
-                            <div class="text-slate-400">RTSP Stream Port: 554 | HTTP Port: 80</div>
-                            <div class="text-brand-cyan pt-2 font-bold">App Sync: EasyLive Plus Mobile & Desktop</div>
+                            <div class="text-slate-400">Hardware: Ubiquiti UniFi Access Points</div>
+                            <div class="text-slate-400">Coverage: Seamless Enterprise Roaming</div>
+                            <div class="text-emerald-400 pt-2 font-bold"><i class="fa-solid fa-wifi"></i> 100% Wi-Fi Signal Across Facilities</div>
                         </div>
                         <div class="lg:col-span-7 order-1 lg:order-2 space-y-4">
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
-                                <i class="fa-solid fa-video"></i> Surveillance & Monitoring
+                                <i class="fa-solid fa-wifi"></i> Wireless Infrastructure
                             </div>
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">IP CCTV & Remote NVR Streaming</h2>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Ubiquiti Access Point Deployment & Wi-Fi Mesh</h2>
                             <p class="text-slate-300 text-sm leading-relaxed">
-                                Design and setup of physical CCTV security networks using Tiandy, Hikvision, and Dahua NVR units. We configure SearchConfig Tool IP binding, router port mapping, P2P cloud streaming, and continuous multi-branch recording setups.
+                                High-density enterprise wireless networks powered by Ubiquiti UniFi Access Points. We design seamless roaming zones, guest captive portals, and secure employee Wi-Fi clusters with centralized cloud controller management.
                             </p>
                             <ul class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300 font-mono pt-2">
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Static IP Camera Binding</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Router Port Mapping (80 / 554)</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> EasyLive Plus App Sync</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Remote Multi-site Live Monitoring</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Ubiquiti UniFi AP Setup</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Seamless Roaming Configuration</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Guest Portal & Bandwidth Limits</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> UniFi Controller Management</li>
                             </ul>
                         </div>
                     </div>
@@ -299,35 +314,102 @@
             </div>
         </section>
 
-        <!-- 5. FULL-STACK DEVELOPMENT (Software Coding / Tech Workspace Background) -->
-        <section id="fullstack" class="py-24 border-b border-slate-800 relative scroll-mt-28" style="background: linear-gradient(to bottom, rgba(15, 17, 23, 0.88), rgba(15, 17, 23, 0.94)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+        <!-- 5. IP CCTV CAMERAS SURVEILLANCE -->
+        <section id="cctv" class="py-24 border-b border-slate-800 relative scroll-mt-28">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 slide-left scroll-animate">
                 <div class="bg-brand-cardBg/95 backdrop-blur-md border border-slate-800 rounded-2xl p-8 lg:p-10 shadow-2xl hover:border-brand-cyan/40 transition">
                     <div class="grid lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-7 space-y-4">
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
-                                <i class="fa-solid fa-code"></i> Enterprise Software
+                                <i class="fa-solid fa-video"></i> IP CCTV Surveillance
                             </div>
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Full-Stack Web, POS & Desktop Apps</h2>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">IP CCTV Cameras & Remote NVR Systems</h2>
                             <p class="text-slate-300 text-sm leading-relaxed">
-                                Custom software development designed specifically for businesses. We build POS systems, inventory management, multi-branch attendance applications, and corporate portals using ASP.NET Core MVC, Next.js, Electron.js, and EF Core migrations.
+                                Multi-location CCTV surveillance setups using Tiandy, Hikvision, and Dahua IP cameras and NVR units. We handle SearchConfig Tool IP binding, router port mapping, and mobile/desktop streaming sync via EasyLive Plus.
                             </p>
                             <ul class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300 font-mono pt-2">
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> C# ASP.NET Core MVC & SQLite/SSMS</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Electron.js Desktop Thermal Printing</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Next.js + Tailwind Modern Web Portals</li>
-                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Standalone Executable Installers</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Tiandy / Hikvision NVR Setup</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Static IP Binding & Port Mapping</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Mobile & PC Live Stream Sync</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Multi-Branch Surveillance Hub</li>
                             </ul>
                         </div>
                         <div class="lg:col-span-5 bg-slate-900/90 border border-slate-700/80 p-6 rounded-xl font-mono text-xs space-y-2">
                             <div class="text-brand-cyan font-bold border-b border-slate-800 pb-2 flex justify-between">
-                                <span>Software Tech Stack</span>
-                                <span>[PRODUCTION]</span>
+                                <span>CCTV Command Center</span>
+                                <span>[STREAMING]</span>
                             </div>
-                            <div class="text-slate-400">Backend: C# ASP.NET Core / Node.js</div>
-                            <div class="text-slate-400">Frontend: Next.js / React / Tailwind CSS</div>
-                            <div class="text-slate-400">Desktop: Electron.js + Inno Setup</div>
-                            <div class="text-slate-400">Databases: MS SQL Server, SQLite, EF Core</div>
+                            <div class="text-slate-400">Cameras: 20+ HD IP Channels Connected</div>
+                            <div class="text-slate-400">App Sync: EasyLive Plus Mobile & PC</div>
+                            <div class="text-slate-400">Storage: 24/7 Continuous NVR Recording</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. WEBSITES & SOFTWARE DEVELOPMENT (DOMAIN & HOSTING) -->
+        <section id="development" class="py-24 border-b border-slate-800 relative scroll-mt-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 slide-right scroll-animate">
+                <div class="bg-brand-cardBg/95 backdrop-blur-md border border-slate-800 rounded-2xl p-8 lg:p-10 shadow-2xl hover:border-brand-cyan/40 transition">
+                    <div class="grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5 order-2 lg:order-1 bg-slate-900/90 border border-slate-700/80 p-6 rounded-xl font-mono text-xs space-y-2">
+                            <div class="text-brand-cyan font-bold border-b border-slate-800 pb-2 flex justify-between">
+                                <span>Web & Software Stack</span>
+                                <span>[DEPLOYED]</span>
+                            </div>
+                            <div class="text-slate-400">Domain & Hosting: cPanel, DirectAdmin, Vercel</div>
+                            <div class="text-slate-400">Websites: Next.js, React, Tailwind CSS</div>
+                            <div class="text-slate-400">Software: C# ASP.NET Core, Electron.js, SQLite</div>
+                        </div>
+                        <div class="lg:col-span-7 order-1 lg:order-2 space-y-4">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
+                                <i class="fa-solid fa-code"></i> Software & Web Engineering
+                            </div>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Website Development, Domain Hosting & Software</h2>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                End-to-end web development, domain registration, and high-speed web hosting setup (cPanel / DirectAdmin / VPS). We also build custom desktop POS applications, billing software, and corporate web portals tailored to business workflows.
+                            </p>
+                            <ul class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300 font-mono pt-2">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Custom Website & Portal Dev</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Domain Registration & cPanel Hosting</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> C# ASP.NET Core & POS Systems</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Electron.js Desktop Apps & Print</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. LAPTOP & PC REPAIRING & SOFTWARE INSTALLATION -->
+        <section id="hardware" class="py-24 border-b border-slate-800 relative scroll-mt-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 slide-left scroll-animate">
+                <div class="bg-brand-cardBg/95 backdrop-blur-md border border-slate-800 rounded-2xl p-8 lg:p-10 shadow-2xl hover:border-brand-cyan/40 transition">
+                    <div class="grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 space-y-4">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase">
+                                <i class="fa-solid fa-laptop-medical"></i> Hardware & Software Maintenance
+                            </div>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Laptop & PC Repairing & Software Installation</h2>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Professional hardware diagnostics, component upgrades, laptop touchpad/webcam troubleshooting, thermal paste replacement, and clean OS installations. We also install professional software suites, drivers, and anti-virus protection.
+                            </p>
+                            <ul class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300 font-mono pt-2">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Laptop & Desktop Hardware Repair</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> RAM, SSD & Processor Upgrades</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> OS & Driver Software Installation</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Error Troubleshooting & Tuning</li>
+                            </ul>
+                        </div>
+                        <div class="lg:col-span-5 bg-slate-900/90 border border-slate-700/80 p-6 rounded-xl font-mono text-xs space-y-2">
+                            <div class="text-brand-cyan font-bold border-b border-slate-800 pb-2 flex justify-between">
+                                <span>Repair Lab Desk</span>
+                                <span class="text-emerald-400">[DIAGNOSTICS]</span>
+                            </div>
+                            <div class="text-slate-400">Services: Component Level Repair & Tuning</div>
+                            <div class="text-slate-400">Software: Clean Windows & App Setup</div>
+                            <div class="text-slate-400">Turnaround: Fast & Reliable Support</div>
                         </div>
                     </div>
                 </div>
@@ -337,10 +419,10 @@
     </div>
 
     <!-- CALL TO ACTION BANNER -->
-    <section class="py-20 border-t border-slate-800 relative" style="background: linear-gradient(to bottom, rgba(15, 17, 23, 0.9), rgba(15, 17, 23, 0.98)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;">
+    <section class="content-layer py-20 border-t border-slate-800 relative bg-brand-charcoal/60 backdrop-blur-sm">
         <div class="max-w-5xl mx-auto px-4 text-center space-y-6 relative z-10 slide-up scroll-animate">
             <h2 class="text-3xl font-extrabold text-white">Ready to Secure & Upgrade Your Business Infrastructure?</h2>
-            <p class="text-slate-300 text-sm max-w-xl mx-auto">Get in touch with our Virtual Network Experts today for a complete network and virtualization audit.</p>
+            <p class="text-slate-300 text-sm max-w-xl mx-auto">Get in touch with our Virtual Network Experts today for a complete network, server, and security audit.</p>
             <div class="flex justify-center gap-4 flex-wrap">
                 <a href="contact.html" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-extrabold transition shadow-lg shadow-brand-cyan/25">Book Infrastructure Consultation</a>
                 <a href="calculator.html" class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition">Calculate Project Cost</a>
@@ -349,7 +431,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="mt-auto bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
+    <footer class="content-layer mt-auto bg-slate-950/90 border-t border-slate-800 text-slate-400 text-xs py-12 backdrop-blur">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="space-y-3">
                 <div class="flex items-center gap-2">
@@ -373,15 +455,17 @@
             <div>
                 <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Core Solutions</h4>
                 <ul class="space-y-2">
-                    <li><a href="services.html#virtualization" class="hover:text-brand-cyan transition">VMware & Proxmox Setup</a></li>
-                    <li><a href="services.html#pfsense" class="hover:text-brand-cyan transition">pfSense Firewall Router</a></li>
-                    <li><a href="services.html#zerotrust" class="hover:text-brand-cyan transition">Cloudflare Zero Trust</a></li>
-                    <li><a href="services.html#cctv" class="hover:text-brand-cyan transition">CCTV Surveillance & NVR</a></li>
+                    <li><a href="services.html#networking" class="hover:text-brand-cyan transition">Networking & Switches</a></li>
+                    <li><a href="services.html#firewall" class="hover:text-brand-cyan transition">pfSense & Load Balancer</a></li>
+                    <li><a href="services.html#servers" class="hover:text-brand-cyan transition">Servers & Cloud Space</a></li>
+                    <li><a href="services.html#wireless" class="hover:text-brand-cyan transition">Ubiquiti Access Points</a></li>
+                    <li><a href="services.html#cctv" class="hover:text-brand-cyan transition">IP CCTV Surveillance</a></li>
+                    <li><a href="services.html#development" class="hover:text-brand-cyan transition">Websites & Software Dev</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Network Operation Center</h4>
-                <p class="text-slate-500 mb-2">Karachi, Pakistan / Remote Global Managed IT</p>
+                <p class="text-slate-500 mb-2">Block 3, Nazimabad Rd No 3, Near Gol Market, Karachi</p>
                 <p class="text-slate-300 font-mono">Email: support@vnedigital.com</p>
                 <p class="text-slate-300 font-mono mt-1">Web: labs.vnedigital.com</p>
             </div>
@@ -391,8 +475,99 @@
         </div>
     </footer>
 
-    <!-- Interactive Scripts & Animations -->
+    <!-- LIVE CANVAS PARTICLES ENGINE SCRIPT -->
     <script>
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+        const particleCount = 80;
+        const maxDistance = 140;
+
+        const mouse = { x: null, y: null, radius: 180 };
+
+        function initCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = [];
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 1.2,
+                    vy: (Math.random() - 0.5) * 1.2,
+                    radius: Math.random() * 2 + 1.5,
+                    color: Math.random() > 0.5 ? '#00E5FF' : '#00D09C'
+                });
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < maxDistance) {
+                        const opacity = 1 - dist / maxDistance;
+                        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.25})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                if (mouse.x !== null) {
+                    const dx = mouse.x - p.x;
+                    const dy = mouse.y - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        const opacity = 1 - dist / mouse.radius;
+                        ctx.strokeStyle = `rgba(0, 208, 156, ${opacity * 0.4})`;
+                        ctx.lineWidth = 1.2;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        window.addEventListener('resize', initCanvas);
+
         // Scroll Observer for Slide Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -408,6 +583,9 @@
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        initCanvas();
+        animate();
     </script>
 </body>
 </html>
