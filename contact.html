@@ -30,14 +30,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         .dropdown:hover .dropdown-menu { display: block; }
 
-        /* Contact & Support Operations Background */
-        .contact-bg {
-            background: linear-gradient(to bottom, rgba(15, 17, 23, 0.88), rgba(15, 17, 23, 0.95)), 
-                        url('https://images.unsplash.com/photo-1423784346385-c1d4dac9093a?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+        /* LIVE CANVAS BACKGROUND POSITIONING */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Content Layers */
+        .content-layer {
+            position: relative;
+            z-index: 10;
         }
 
         /* Slide Animation Classes */
@@ -49,8 +60,11 @@
 </head>
 <body class="bg-brand-charcoal text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-cyan selection:text-black">
 
+    <!-- LIVE ANIMATED CANVAS BACKGROUND -->
+    <canvas id="particles-canvas"></canvas>
+
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-slate-950/90 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
+    <div class="content-layer bg-slate-950/90 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <span class="flex h-2 w-2 relative">
@@ -67,7 +81,7 @@
     </div>
 
     <!-- NAVIGATION HEADER -->
-    <header class="sticky top-0 z-40 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
+    <header class="content-layer sticky top-0 z-40 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Brand Logo with Image -->
@@ -92,7 +106,7 @@
                             <span>Services</span>
                             <i class="fa-solid fa-chevron-down text-xs"></i>
                         </a>
-                        <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg border border-slate-700 shadow-2xl p-2 z-50">
+                        <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg/95 border border-slate-700 shadow-2xl p-2 z-50 backdrop-blur-md">
                             <a href="services.html#virtualization" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
                                 <i class="fa-solid fa-server text-brand-cyan w-5 text-center"></i>
                                 <div><div class="font-bold text-xs">VMware & Proxmox</div></div>
@@ -128,7 +142,7 @@
             </div>
         </div>
 
-        <div id="mobileMenu" class="hidden md:hidden bg-brand-cardBg border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-cardBg/95 backdrop-blur-md border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
             <a href="index.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Home</a>
             <a href="about.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">About</a>
             <a href="services.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Services</a>
@@ -141,7 +155,7 @@
     </header>
 
     <!-- PAGE TITLE -->
-    <section class="py-16 contact-bg border-b border-slate-800 text-center relative">
+    <section class="content-layer py-16 border-b border-slate-800 text-center relative bg-brand-charcoal/40 backdrop-blur-sm">
         <div class="max-w-4xl mx-auto px-4 relative z-10 slide-up scroll-animate">
             <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Get In Touch</span>
             <h1 class="text-3xl sm:text-5xl font-extrabold text-white mt-3 mb-2 tracking-tight">Book an Infrastructure Audit & Consultation</h1>
@@ -149,8 +163,8 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION WITH BACKGROUND -->
-    <section class="py-20 contact-bg border-b border-slate-800 relative">
+    <!-- CONTACT SECTION -->
+    <section class="content-layer py-20 border-b border-slate-800 relative bg-brand-charcoal/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
             
             <div class="grid lg:grid-cols-12 gap-10">
@@ -264,7 +278,7 @@
 
             </div>
 
-            <!-- EXACT BLOCK 3 NAZIMABAD RD NO 3, GOL MARKET MAP SECTION -->
+            <!-- MAP SECTION -->
             <div class="bg-brand-cardBg/95 backdrop-blur-md border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 slide-up scroll-animate shadow-2xl">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-800 pb-4">
                     <div>
@@ -279,7 +293,6 @@
                     </a>
                 </div>
 
-                <!-- Google Map Embed focused precisely on Block 3 Nazimabad Rd No 3, Gol Market, Karachi -->
                 <div class="w-full h-80 sm:h-96 rounded-xl overflow-hidden border border-slate-700/80 shadow-inner relative">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.355325883737!2d67.0285!3d24.9118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f8e651d4bbf%3A0x0!2sBlock+3+Nazimabad%2C+Karachi%2C+Pakistan!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s" 
@@ -302,7 +315,7 @@
     </a>
 
     <!-- FOOTER -->
-    <footer class="mt-auto bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
+    <footer class="content-layer mt-auto bg-slate-950/90 border-t border-slate-800 text-slate-400 text-xs py-12 backdrop-blur">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="space-y-3">
                 <div class="flex items-center gap-2">
@@ -342,13 +355,104 @@
         </div>
     </footer>
 
-    <!-- Interactive Scripts & Animations -->
+    <!-- LIVE CANVAS PARTICLES ENGINE SCRIPT -->
     <script>
         function handleSubmit(e) {
             e.preventDefault();
             document.getElementById('successAlert').classList.remove('hidden');
             document.getElementById('contactForm').reset();
         }
+
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+        const particleCount = 80;
+        const maxDistance = 140;
+
+        const mouse = { x: null, y: null, radius: 180 };
+
+        function initCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = [];
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 1.2,
+                    vy: (Math.random() - 0.5) * 1.2,
+                    radius: Math.random() * 2 + 1.5,
+                    color: Math.random() > 0.5 ? '#00E5FF' : '#00D09C'
+                });
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < maxDistance) {
+                        const opacity = 1 - dist / maxDistance;
+                        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.25})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                if (mouse.x !== null) {
+                    const dx = mouse.x - p.x;
+                    const dy = mouse.y - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        const opacity = 1 - dist / mouse.radius;
+                        ctx.strokeStyle = `rgba(0, 208, 156, ${opacity * 0.4})`;
+                        ctx.lineWidth = 1.2;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        window.addEventListener('resize', initCanvas);
 
         // Scroll Observer for Slide Animations
         const observer = new IntersectionObserver((entries) => {
@@ -364,6 +468,9 @@
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        initCanvas();
+        animate();
     </script>
 </body>
 </html>
