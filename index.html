@@ -84,7 +84,7 @@
             background: linear-gradient(to left, #0F1117, transparent);
         }
 
-        /* White Logo Cards Style (Matching Vmarcom Style) */
+        /* White Logo Cards Style */
         .logo-card {
             background-color: #FFFFFF;
             border-radius: 1rem;
@@ -210,7 +210,6 @@
     <!-- HERO SECTION -->
     <section class="content-layer py-20 lg:py-28 relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-left space-y-8">
-            
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase tracking-wider">
                 <i class="fa-solid fa-shield-halved"></i> Enterprise Managed Networks & Infrastructure
             </div>
@@ -230,106 +229,189 @@
                 </a>
                 <a href="services.html" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-cyan/20 to-brand-teal/20 text-brand-cyan border border-brand-cyan/40 font-bold hover:bg-brand-cyan/30 transition flex items-center gap-2">
                     <i class="fa-solid fa-gauge-high"></i>
-                    <span>Run Network Speed Test</span>
+                    <span>Explore Core Services</span>
                 </a>
             </div>
-
         </div>
     </section>
 
- <!-- LIVE INFINITE CLIENTS LOGO MARQUEE TICKER SECTION (ALL 19 LOGOS) -->
+    <!-- WHO WE ARE SECTION -->
+    <section class="content-layer py-20 bg-slate-950/60 border-y border-slate-800 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Who We Are</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Virtual Network Experts (VNE.IT)</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Founded with a mission to bridge the gap between complex enterprise hardware and seamless software execution, VNE.IT operates as a premier managed infrastructure and full-stack engineering division under <strong>VNE Digital</strong>.
+                    </p>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        We specialize in designing robust bare-metal hypervisor environments, securing branch-to-branch data channels with zero public exposure, and deploying high-performance enterprise applications for businesses across diverse sectors.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-2 font-mono text-xs">
+                        <div class="bg-brand-cardBg p-4 rounded-xl border border-slate-800">
+                            <div class="text-brand-cyan font-bold text-xl mb-1">19+</div>
+                            <div class="text-slate-400">Enterprise Clients Onboarded</div>
+                        </div>
+                        <div class="bg-brand-cardBg p-4 rounded-xl border border-slate-800">
+                            <div class="text-brand-teal font-bold text-xl mb-1">99.99%</div>
+                            <div class="text-slate-400">Infrastructure Uptime & SLA</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 bg-brand-cardBg/90 border border-slate-800 p-8 rounded-3xl shadow-2xl relative">
+                    <div class="absolute -top-3 -right-3 px-3 py-1 rounded-full bg-brand-cyan text-slate-950 font-bold text-[10px] tracking-wider uppercase">NOC Verified</div>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-server text-brand-cyan"></i> Core Engineering Standards
+                    </h3>
+                    <ul class="space-y-4 text-sm text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-cyan mt-1"></i>
+                            <div><strong>Zero-Trust Architecture:</strong> Secure tunnel routing bypassing traditional vulnerable port forwarding.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-cyan mt-1"></i>
+                            <div><strong>Multi-Branch Synchronization:</strong> Real-time POS and database replication across remote outlets.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-cyan mt-1"></i>
+                            <div><strong>24/7 Proactive Monitoring:</strong> Live latency tracking, threat prevention, and instant incident mitigation.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE SERVICES BOXES -->
+    <section class="content-layer py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Managed Offerings</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Our Core Infrastructure Services</h2>
+                <p class="text-slate-300 text-sm">Enterprise-grade deployment solutions engineered for maximum security, speed, and reliability.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="bg-brand-cardBg/90 border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">VMware & Proxmox</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">High-performance hypervisor virtualization, custom virtual machine provisioning, and robust resource allocation.</p>
+                    <a href="services.html#virtualization" class="text-brand-cyan font-mono text-xs inline-flex items-center gap-1 hover:underline">Learn More <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-brand-cardBg/90 border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">pfSense Firewalls</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Advanced perimeter security, traffic shaping, custom firewall rule matrices, and multi-WAN load balancing.</p>
+                    <a href="services.html#pfsense" class="text-brand-cyan font-mono text-xs inline-flex items-center gap-1 hover:underline">Learn More <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-brand-cardBg/90 border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Zero-Trust Tunnels</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Cloudflare Zero Trust secure remote access, encrypted backhauls, and static IP binding without port vulnerability.</p>
+                    <a href="services.html#zerotrust" class="text-brand-cyan font-mono text-xs inline-flex items-center gap-1 hover:underline">Learn More <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-brand-cardBg/90 border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">IP CCTV & NVR</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Multi-site surveillance setups using Tiandy NVRs, SearchConfig tools, router port mapping, and mobile app streaming.</p>
+                    <a href="services.html#cctv" class="text-brand-cyan font-mono text-xs inline-flex items-center gap-1 hover:underline">Learn More <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS & STACK -->
+    <section class="content-layer py-20 bg-slate-950/60 border-t border-slate-800 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Engineering Competencies</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Technical Skills & Architecture Stack</h2>
+                <p class="text-slate-300 text-sm">Deep technical mastery across full-stack software development and network engineering.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Skill Category 1 -->
+                <div class="bg-brand-cardBg/90 border border-slate-800 p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Full-Stack Development</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">C# / .NET Core</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">ASP.NET MVC</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">Node.js</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">Electron.js</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">React & Next.js</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <!-- Skill Category 2 -->
+                <div class="bg-brand-cardBg/90 border border-slate-800 p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Databases & Build Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">MS SQL Server</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">SQLite</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">EF Core Migrations</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">Inno Setup Compiler</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">electron-builder</span>
+                    </div>
+                </div>
+
+                <!-- Skill Category 3 -->
+                <div class="bg-brand-cardBg/90 border border-slate-800 p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Infrastructure & Deployment</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">VMware ESXi</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">pfSense Firewall</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">Cloudflare Tunnels</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">IIS & DirectAdmin</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">Tiandy NVRs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE INFINITE CLIENTS LOGO MARQUEE TICKER SECTION (ALL 19 LOGOS) -->
     <section class="content-layer py-12 bg-slate-950/80 border-y border-slate-800 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
             <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
-                TRUSTED BY <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal"> ENTERPRISE CLIENTS</span> & PARTNERS
+                TRUSTED BY <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">19+ ENTERPRISE CLIENTS</span> & PARTNERS
             </h3>
         </div>
 
         <div class="marquee-container flex items-center py-2">
             <!-- FIRST SET OF ALL 19 LOGOS -->
             <div class="flex items-center space-x-6 animate-marquee shrink-0 whitespace-nowrap">
-                
-                <div class="logo-card">
-                    <img src="abdul basit.png" alt="A. Basit Ghori & Co." onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-building text-brand-darkTeal\'></i>A. Basit Ghori & Co.</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="ae_2.png" alt="AE Global" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-globe text-brand-darkTeal\'></i>AE Global</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="ali mukhtar.png" alt="Ali Mukhtar Agencies" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-handshake text-brand-darkTeal\'></i>Ali Mukhtar Agencies</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="dim_2.png" alt="DEA Energy Technology" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-bolt text-brand-darkTeal\'></i>DEA Energy Tech</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="FM traders.png" alt="FM Traders" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-coins text-brand-darkTeal\'></i>FM Traders</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="global.png" alt="Global iTS" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-network-wired text-brand-darkTeal\'></i>Global iTS</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="HIGH-IMPACT ENTREPRENEURS FOUNDATION_2.png" alt="High Impact Entrepreneurs" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-chart-line text-brand-darkTeal\'></i>High Impact Foundation</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="hill park.png" alt="Hill Park General Hospital" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-hospital text-brand-darkTeal\'></i>Hill Park Hospital</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="j4f .png" alt="Juice4Fun" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-glass-water text-brand-darkTeal\'></i>Juice4Fun</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="jamaly enterprises.png" alt="Jamaly Enterprises" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-boxes-packing text-brand-darkTeal\'></i>Jamaly Enterprises</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="Vmarcom.png" alt="Vmarcom" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-bullhorn text-brand-darkTeal\'></i>Vmarcom</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="luminous.png" alt="Luminous Advertising" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-rectangle-ad text-brand-darkTeal\'></i>Luminous Advertising</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="mspeak.png" alt="MS Peak Consulting" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-mountain text-brand-darkTeal\'></i>MS Peak Consulting</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="primelinker.png" alt="PrimeLinkers" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-ship text-brand-darkTeal\'></i>PrimeLinkers</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="servista.png" alt="Servista" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-hand-holding-heart text-brand-darkTeal\'></i>Servista</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="smollan.png" alt="Smollan" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-briefcase text-brand-darkTeal\'></i>Smollan</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="Sprint-Tech.png" alt="Sprint Tech" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-mobile-screen-button text-brand-darkTeal\'></i>Sprint Tech</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="TAG group.png" alt="TAG Group" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-layer-group text-brand-darkTeal\'></i>TAG Group</span>'">
-                </div>
-
-                <div class="logo-card">
-                    <img src="velosi.png" alt="Velosi Pakistan" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-screwdriver-wrench text-brand-darkTeal\'></i>Velosi Pakistan</span>'">
-                </div>
-
-            </div>
-
-            <!-- SECOND DUPLICATE SET FOR SEAMLESS INFINITE LOOP -->
-            <div class="flex items-center space-x-6 animate-marquee shrink-0 whitespace-nowrap ml-6" aria-hidden="true">
-                
                 <div class="logo-card"><img src="abdul basit.png" alt="A. Basit Ghori & Co." onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-building text-brand-darkTeal\'></i>A. Basit Ghori & Co.</span>'"></div>
                 <div class="logo-card"><img src="ae_2.png" alt="AE Global" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-globe text-brand-darkTeal\'></i>AE Global</span>'"></div>
                 <div class="logo-card"><img src="ali mukhtar.png" alt="Ali Mukhtar Agencies" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-handshake text-brand-darkTeal\'></i>Ali Mukhtar Agencies</span>'"></div>
@@ -349,7 +431,29 @@
                 <div class="logo-card"><img src="Sprint-Tech.png" alt="Sprint Tech" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-mobile-screen-button text-brand-darkTeal\'></i>Sprint Tech</span>'"></div>
                 <div class="logo-card"><img src="TAG group.png" alt="TAG Group" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-layer-group text-brand-darkTeal\'></i>TAG Group</span>'"></div>
                 <div class="logo-card"><img src="velosi.png" alt="Velosi Pakistan" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-screwdriver-wrench text-brand-darkTeal\'></i>Velosi Pakistan</span>'"></div>
+            </div>
 
+            <!-- SECOND DUPLICATE SET FOR SEAMLESS INFINITE LOOP -->
+            <div class="flex items-center space-x-6 animate-marquee shrink-0 whitespace-nowrap ml-6" aria-hidden="true">
+                <div class="logo-card"><img src="abdul basit.png" alt="A. Basit Ghori & Co." onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-building text-brand-darkTeal\'></i>A. Basit Ghori & Co.</span>'"></div>
+                <div class="logo-card"><img src="ae_2.png" alt="AE Global" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-globe text-brand-darkTeal\'></i>AE Global</span>'"></div>
+                <div class="logo-card"><img src="ali mukhtar.png" alt="Ali Mukhtar Agencies" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-handshake text-brand-darkTeal\'></i>Ali Mukhtar Agencies</span>'"></div>
+                <div class="logo-card"><img src="dim_2.png" alt="DEA Energy Technology" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-bolt text-brand-darkTeal\'></i>DEA Energy Tech</span>'"></div>
+                <div class="logo-card"><img src="FM traders.png" alt="FM Traders" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-coins text-brand-darkTeal\'></i>FM Traders</span>'"></div>
+                <div class="logo-card"><img src="global.png" alt="Global iTS" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-network-wired text-brand-darkTeal\'></i>Global iTS</span>'"></div>
+                <div class="logo-card"><img src="HIGH-IMPACT ENTREPRENEURS FOUNDATION_2.png" alt="High Impact Entrepreneurs" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-chart-line text-brand-darkTeal\'></i>High Impact Foundation</span>'"></div>
+                <div class="logo-card"><img src="hill park.png" alt="Hill Park General Hospital" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-hospital text-brand-darkTeal\'></i>Hill Park Hospital</span>'"></div>
+                <div class="logo-card"><img src="j4f .png" alt="Juice4Fun" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-glass-water text-brand-darkTeal\'></i>Juice4Fun</span>'"></div>
+                <div class="logo-card"><img src="jamaly enterprises.png" alt="Jamaly Enterprises" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-boxes-packing text-brand-darkTeal\'></i>Jamaly Enterprises</span>'"></div>
+                <div class="logo-card"><img src="Vmarcom.png" alt="Vmarcom" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-bullhorn text-brand-darkTeal\'></i>Vmarcom</span>'"></div>
+                <div class="logo-card"><img src="luminous.png" alt="Luminous Advertising" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-rectangle-ad text-brand-darkTeal\'></i>Luminous Advertising</span>'"></div>
+                <div class="logo-card"><img src="mspeak.png" alt="MS Peak Consulting" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-mountain text-brand-darkTeal\'></i>MS Peak Consulting</span>'"></div>
+                <div class="logo-card"><img src="primelinker.png" alt="PrimeLinkers" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-ship text-brand-darkTeal\'></i>PrimeLinkers</span>'"></div>
+                <div class="logo-card"><img src="servista.png" alt="Servista" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-hand-holding-heart text-brand-darkTeal\'></i>Servista</span>'"></div>
+                <div class="logo-card"><img src="smollan.png" alt="Smollan" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-briefcase text-brand-darkTeal\'></i>Smollan</span>'"></div>
+                <div class="logo-card"><img src="Sprint-Tech.png" alt="Sprint Tech" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-mobile-screen-button text-brand-darkTeal\'></i>Sprint Tech</span>'"></div>
+                <div class="logo-card"><img src="TAG group.png" alt="TAG Group" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-layer-group text-brand-darkTeal\'></i>TAG Group</span>'"></div>
+                <div class="logo-card"><img src="velosi.png" alt="Velosi Pakistan" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-screwdriver-wrench text-brand-darkTeal\'></i>Velosi Pakistan</span>'"></div>
             </div>
         </div>
     </section>
