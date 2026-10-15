@@ -54,20 +54,22 @@
             pointer-events: none;
         }
 
-        /* Content Layers - Solid Backgrounds to Prevent Particle Interference */
+        /* Transparent content layers so background dots are visible underneath */
         .content-layer {
             position: relative;
             z-index: 10;
-            background-color: #0F1117;
+            background: rgba(15, 17, 23, 0.75);
+            backdrop-filter: blur(2px);
         }
 
         .content-layer-alt {
             position: relative;
             z-index: 10;
-            background-color: #12151D;
+            background: rgba(18, 21, 29, 0.85);
+            backdrop-filter: blur(2px);
         }
 
-        /* Infinite Marquee Container & Gradient Fades */
+        /* Infinite Marquee Container with Reference-style Side Fades */
         .marquee-container {
             overflow: hidden;
             position: relative;
@@ -77,21 +79,21 @@
             content: "";
             position: absolute;
             top: 0;
-            width: 120px;
+            width: 150px;
             height: 100%;
-            z-index: 2;
+            z-index: 3;
             pointer-events: none;
         }
         .marquee-container::before {
             left: 0;
-            background: linear-gradient(to right, #0F1117, transparent);
+            background: linear-gradient(to right, rgba(15, 17, 23, 1), rgba(15, 17, 23, 0));
         }
         .marquee-container::after {
             right: 0;
-            background: linear-gradient(to left, #0F1117, transparent);
+            background: linear-gradient(to left, rgba(15, 17, 23, 1), rgba(15, 17, 23, 0));
         }
 
-        /* White Logo Cards Style */
+        /* White Logo Cards Style with Soft Hover */
         .logo-card {
             background-color: #FFFFFF;
             border-radius: 1rem;
@@ -99,18 +101,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 85px;
-            min-width: 210px;
+            height: 90px;
+            min-width: 220px;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .logo-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 15px 30px -5px rgba(0, 229, 255, 0.3);
+            box-shadow: 0 15px 30px -5px rgba(0, 229, 255, 0.4);
         }
         .logo-card img {
-            max-height: 55px;
-            max-width: 160px;
+            max-height: 60px;
+            max-width: 170px;
             width: auto;
             height: auto;
             object-fit: contain;
@@ -119,11 +121,11 @@
 </head>
 <body class="bg-brand-charcoal text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-cyan selection:text-black">
 
-    <!-- LIVE ANIMATED CANVAS BACKGROUND -->
+    <!-- LIVE ANIMATED CANVAS BACKGROUND (DOTS & NODES) -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="content-layer bg-slate-950 border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
+    <div class="content-layer bg-slate-950/90 border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <span class="flex h-2 w-2 relative">
@@ -141,7 +143,7 @@
     </div>
 
     <!-- NAVIGATION HEADER -->
-    <header class="content-layer sticky top-0 z-40 bg-brand-charcoal border-b border-slate-800">
+    <header class="content-layer sticky top-0 z-40 bg-brand-charcoal/90 border-b border-slate-800 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Brand Logo -->
@@ -242,8 +244,8 @@
         </div>
     </section>
 
-    <!-- LIVE INFINITE CLIENTS LOGO MARQUEE TICKER SECTION (SOLID BACKGROUND, NO BLUR) -->
-    <section class="content-layer py-12 bg-slate-950 border-y border-slate-800">
+    <!-- LIVE INFINITE CLIENTS LOGO MARQUEE TICKER SECTION (WITH REFERENCE SIDE-FADE SHADOWS) -->
+    <section class="content-layer py-12 border-y border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
             <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
                 TRUSTED BY <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">19+ ENTERPRISE CLIENTS</span> & PARTNERS
@@ -299,7 +301,7 @@
         </div>
     </section>
 
-    <!-- WHO WE ARE SECTION (SOLID BACKGROUND) -->
+    <!-- WHO WE ARE SECTION -->
     <section class="content-layer-alt py-20 border-y border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-12 gap-12 items-center">
@@ -347,7 +349,7 @@
         </div>
     </section>
 
-    <!-- CORE SERVICES BOXES (SOLID BACKGROUND) -->
+    <!-- CORE SERVICES BOXES -->
     <section class="content-layer py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div class="text-center max-w-3xl mx-auto space-y-3">
@@ -400,7 +402,7 @@
         </div>
     </section>
 
-    <!-- TECHNICAL SKILLS & STACK (SOLID BACKGROUND) -->
+    <!-- TECHNICAL SKILLS & STACK -->
     <section class="content-layer-alt py-20 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div class="text-center max-w-3xl mx-auto space-y-3">
