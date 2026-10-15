@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>It.VNE - Virtual Network Experts | Enterprise Managed Infrastructure</title>
+    <meta name="description" content="VNE.IT delivers end-to-end IT infrastructure deployment, VMware ESXi / Proxmox virtualization, Zero-Trust network tunnels, pfSense firewalls, and AI CCTV surveillance.">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -33,12 +35,15 @@
             }
         }
     </script>
+    <!-- FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .dropdown:hover .dropdown-menu { display: block; }
 
+        /* LIVE CANVAS BACKGROUND POSITIONING */
         #particles-canvas {
             position: fixed;
             top: 0;
@@ -49,11 +54,13 @@
             pointer-events: none;
         }
 
+        /* Content Layers */
         .content-layer {
             position: relative;
             z-index: 10;
         }
 
+        /* Infinite Marquee Container & Gradient Fades */
         .marquee-container {
             overflow: hidden;
             position: relative;
@@ -77,6 +84,7 @@
             background: linear-gradient(to left, #0F1117, transparent);
         }
 
+        /* White Logo Cards Style (Matching Reference Site) */
         .logo-card {
             background-color: #FFFFFF;
             border-radius: 1rem;
@@ -84,8 +92,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 75px;
-            min-width: 220px;
+            height: 80px;
+            min-width: 210px;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -94,8 +102,8 @@
             box-shadow: 0 15px 30px -5px rgba(0, 229, 255, 0.3);
         }
         .logo-card img {
-            max-height: 48px;
-            max-width: 170px;
+            max-height: 52px;
+            max-width: 160px;
             width: auto;
             height: auto;
             object-fit: contain;
@@ -104,13 +112,34 @@
 </head>
 <body class="bg-brand-charcoal text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-cyan selection:text-black">
 
+    <!-- LIVE ANIMATED CANVAS BACKGROUND -->
     <canvas id="particles-canvas"></canvas>
 
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="content-layer bg-slate-950/90 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
+                </span>
+                <span><strong>NOC Status:</strong> All Virtual Tunnels & Infrastructure Systems Operational (99.99%)</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-4">
+                <span><i class="fa-solid fa-signal text-brand-cyan mr-1"></i> HQ Ping: 14ms</span>
+                <span><i class="fa-solid fa-gauge-high text-brand-cyan mr-1"></i> Speed: 990 Mbps</span>
+                <span><i class="fa-solid fa-ticket text-brand-cyan mr-1"></i> Raise Ticket</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
     <header class="content-layer sticky top-0 z-40 bg-brand-charcoal/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center gap-3">
-                    <img src="yber.png" alt="It.VNE Logo" class="w-10 h-10 object-contain rounded-xl shadow-lg shadow-brand-cyan/20" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2092/2092663.png'">
+                <!-- Brand Logo -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="yber.png" alt="It.VNE Logo" class="w-10 h-10 object-contain rounded-xl group-hover:scale-105 transition-transform shadow-lg shadow-brand-cyan/20">
                     <div class="flex flex-col">
                         <span class="text-2xl font-extrabold tracking-tight text-white flex items-center gap-1">
                             It.<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">VNE</span>
@@ -119,78 +148,260 @@
                     </div>
                 </a>
 
+                <!-- Navigation Links -->
                 <nav class="hidden md:flex items-center space-x-1 text-sm font-medium">
                     <a href="index.html" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand-cyan/10 to-brand-teal/10 text-brand-cyan font-semibold border border-brand-cyan/30">Home</a>
                     <a href="about.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition">About</a>
-                    <a href="services.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition">Services</a>
+                    
+                    <div class="relative dropdown">
+                        <a href="services.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition inline-flex items-center gap-1">
+                            <span>Services</span>
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg/95 border border-slate-700 shadow-2xl p-2 z-50 backdrop-blur-md">
+                            <a href="services.html#virtualization" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-server text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">VMware & Proxmox</div></div>
+                            </a>
+                            <a href="services.html#pfsense" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-shield-halved text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">pfSense & Firewalls</div></div>
+                            </a>
+                            <a href="services.html#zerotrust" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-network-wired text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">Zero Trust & VPN Tunnels</div></div>
+                            </a>
+                            <a href="services.html#cctv" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-video text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">IP CCTV Surveillance</div></div>
+                            </a>
+                        </div>
+                    </div>
+
                     <a href="clients.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition">Clients & Trust</a>
                     <a href="calculator.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition">Cost Estimator</a>
                     <a href="portfolio.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition">Case Studies</a>
-                    <a href="contact.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Contact</a>
+                    <a href="contact.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition">Contact</a>
                 </nav>
 
                 <div class="hidden md:flex items-center gap-3">
-                    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-extrabold transition hover:opacity-90 shadow-lg shadow-brand-cyan/25">
-                        Book Infrastructure Audit
+                    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-extrabold transition hover:opacity-90 shadow-lg shadow-brand-cyan/25 flex items-center gap-2">
+                        <span>Book Infrastructure Audit</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
                 </div>
+
+                <button id="mobileMenuBtn" class="md:hidden text-slate-300 text-2xl p-2"><i class="fa-solid fa-bars"></i></button>
             </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-cardBg/95 backdrop-blur-md border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block px-3 py-2 rounded-md bg-brand-cyan/10 text-brand-cyan font-semibold">Home</a>
+            <a href="about.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">About</a>
+            <a href="services.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Services</a>
+            <a href="clients.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Clients & Trust</a>
+            <a href="calculator.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Cost Estimator</a>
+            <a href="portfolio.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Case Studies</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Contact</a>
+            <a href="contact.html" class="block w-full text-center mt-4 px-4 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold">Book Infrastructure Audit</a>
         </div>
     </header>
 
-    <section class="content-layer py-12 bg-slate-950/80 border-y border-slate-800 backdrop-blur-md my-12">
+    <!-- HERO SECTION -->
+    <section class="content-layer py-20 lg:py-28 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-left space-y-8">
+            
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-shield-halved"></i> Enterprise Managed Networks & Infrastructure
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-tight">
+                Architecting <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">Secure & Scalable</span> Virtual Network Systems
+            </h1>
+            
+            <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl">
+                VNE.IT delivers end-to-end IT infrastructure deployment, VMware ESXi / Proxmox virtualization, Zero-Trust network tunnels, pfSense enterprise firewalls, and AI-powered CCTV surveillance.
+            </p>
+
+            <div class="flex flex-wrap gap-4 pt-4">
+                <a href="calculator.html" class="px-6 py-3.5 rounded-xl bg-brand-cardBg/90 hover:bg-slate-800 text-white font-bold border border-slate-700 transition flex items-center gap-2 shadow-lg">
+                    <i class="fa-solid fa-calculator text-brand-cyan"></i>
+                    <span>Calculate Infrastructure Cost</span>
+                </a>
+                <a href="services.html" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-cyan/20 to-brand-teal/20 text-brand-cyan border border-brand-cyan/40 font-bold hover:bg-brand-cyan/30 transition flex items-center gap-2">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Run Network Speed Test</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIVE INFINITE CLIENTS LOGO MARQUEE TICKER SECTION -->
+    <section class="content-layer py-12 bg-slate-950/80 border-y border-slate-800 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-            <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
                 TRUSTED BY <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">ENTERPRISE CLIENTS</span> & PARTNERS
             </h3>
         </div>
 
         <div class="marquee-container flex items-center py-2">
-            <!-- FIRST SET -->
+            <!-- FIRST SET OF LOGOS -->
             <div class="flex items-center space-x-6 animate-marquee shrink-0 whitespace-nowrap">
-                <div class="logo-card"><img src="firm logo.jpeg" alt="A. Basit Ghori & Co." onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-building text-brand-cyan mr-2\'></i>A. Basit Ghori & Co.</span>'"></div>
-                <div class="logo-card"><img src="ae.png" alt="AE Global" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-globe text-brand-cyan mr-2\'></i>AE Global</span>'"></div>
-                <div class="logo-card"><img src="02342d33-7e36-485d-bf03-be9cf7f3ef1f.png" alt="Ali Mukhtar Agencies" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-handshake text-brand-cyan mr-2\'></i>Ali Mukhtar Agencies</span>'"></div>
-                <div class="logo-card"><img src="dim.png" alt="DEA Energy Technology" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-bolt text-brand-cyan mr-2\'></i>DEA Energy Tech</span>'"></div>
-                <div class="logo-card"><img src="GITS-Original-Logo.png" alt="Global iTS" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-network-wired text-brand-cyan mr-2\'></i>Global iTS</span>'"></div>
-                <div class="logo-card"><img src="HIGH-IMPACT ENTREPRENEURS FOUNDATION.png" alt="High Impact Entrepreneurs" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-chart-line text-brand-cyan mr-2\'></i>High Impact Foundation</span>'"></div>
-                <div class="logo-card"><img src="images (3).jfif" alt="Smollan" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-briefcase text-brand-cyan mr-2\'></i>Smollan</span>'"></div>
-                <div class="logo-card"><img src="images (4).jfif" alt="Jamaly Enterprises" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-boxes-packing text-brand-cyan mr-2\'></i>Jamaly Enterprises</span>'"></div>
-                <div class="logo-card"><img src="images (5).jfif" alt="Hill Park General Hospital" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-hospital text-brand-cyan mr-2\'></i>Hill Park Hospital</span>'"></div>
-                <div class="logo-card"><img src="ms peak.png" alt="MS Peak Consulting" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-mountain text-brand-cyan mr-2\'></i>MS Peak Consulting</span>'"></div>
+                
+                <div class="logo-card">
+                    <img src="firm logo.jpeg" alt="A. Basit Ghori & Co." onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-building text-brand-darkTeal\'></i>A. Basit Ghori & Co.</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="ae.png" alt="AE Global" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-globe text-brand-darkTeal\'></i>AE Global</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="02342d33-7e36-485d-bf03-be9cf7f3ef1f.png" alt="Ali Mukhtar Agencies" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-handshake text-brand-darkTeal\'></i>Ali Mukhtar Agencies</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="dim.png" alt="DEA Energy Technology" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-bolt text-brand-darkTeal\'></i>DEA Energy Tech</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="GITS-Original-Logo.png" alt="Global iTS" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-network-wired text-brand-darkTeal\'></i>Global iTS</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="HIGH-IMPACT ENTREPRENEURS FOUNDATION.png" alt="High Impact Entrepreneurs" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-chart-line text-brand-darkTeal\'></i>High Impact Foundation</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="images (3).jfif" alt="Smollan" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-briefcase text-brand-darkTeal\'></i>Smollan</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="images (4).jfif" alt="Jamaly Enterprises" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-boxes-packing text-brand-darkTeal\'></i>Jamaly Enterprises</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="images (5).jfif" alt="Hill Park General Hospital" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-hospital text-brand-darkTeal\'></i>Hill Park Hospital</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="ms peak.png" alt="MS Peak Consulting" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-mountain text-brand-darkTeal\'></i>MS Peak Consulting</span>'">
+                </div>
+
             </div>
 
-            <!-- DUPLICATE LOOP SET -->
+            <!-- SECOND DUPLICATE SET FOR SEAMLESS INFINITE LOOP -->
             <div class="flex items-center space-x-6 animate-marquee shrink-0 whitespace-nowrap ml-6" aria-hidden="true">
-                <div class="logo-card"><img src="firm logo.jpeg" alt="A. Basit Ghori & Co." onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-building text-brand-cyan mr-2\'></i>A. Basit Ghori & Co.</span>'"></div>
-                <div class="logo-card"><img src="ae.png" alt="AE Global" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-globe text-brand-cyan mr-2\'></i>AE Global</span>'"></div>
-                <div class="logo-card"><img src="02342d33-7e36-485d-bf03-be9cf7f3ef1f.png" alt="Ali Mukhtar Agencies" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-handshake text-brand-cyan mr-2\'></i>Ali Mukhtar Agencies</span>'"></div>
-                <div class="logo-card"><img src="dim.png" alt="DEA Energy Technology" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-bolt text-brand-cyan mr-2\'></i>DEA Energy Tech</span>'"></div>
-                <div class="logo-card"><img src="GITS-Original-Logo.png" alt="Global iTS" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-network-wired text-brand-cyan mr-2\'></i>Global iTS</span>'"></div>
-                <div class="logo-card"><img src="HIGH-IMPACT ENTREPRENEURS FOUNDATION.png" alt="High Impact Entrepreneurs" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-chart-line text-brand-cyan mr-2\'></i>High Impact Foundation</span>'"></div>
-                <div class="logo-card"><img src="images (3).jfif" alt="Smollan" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-briefcase text-brand-cyan mr-2\'></i>Smollan</span>'"></div>
-                <div class="logo-card"><img src="images (4).jfif" alt="Jamaly Enterprises" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-boxes-packing text-brand-cyan mr-2\'></i>Jamaly Enterprises</span>'"></div>
-                <div class="logo-card"><img src="images (5).jfif" alt="Hill Park General Hospital" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-hospital text-brand-cyan mr-2\'></i>Hill Park Hospital</span>'"></div>
-                <div class="logo-card"><img src="ms peak.png" alt="MS Peak Consulting" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-slate-900 text-sm\'><i class=\'fa-solid fa-mountain text-brand-cyan mr-2\'></i>MS Peak Consulting</span>'"></div>
+                
+                <div class="logo-card">
+                    <img src="firm logo.jpeg" alt="A. Basit Ghori & Co." onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-building text-brand-darkTeal\'></i>A. Basit Ghori & Co.</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="ae.png" alt="AE Global" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-globe text-brand-darkTeal\'></i>AE Global</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="02342d33-7e36-485d-bf03-be9cf7f3ef1f.png" alt="Ali Mukhtar Agencies" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-handshake text-brand-darkTeal\'></i>Ali Mukhtar Agencies</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="dim.png" alt="DEA Energy Technology" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-bolt text-brand-darkTeal\'></i>DEA Energy Tech</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="GITS-Original-Logo.png" alt="Global iTS" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-network-wired text-brand-darkTeal\'></i>Global iTS</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="HIGH-IMPACT ENTREPRENEURS FOUNDATION.png" alt="High Impact Entrepreneurs" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-chart-line text-brand-darkTeal\'></i>High Impact Foundation</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="images (3).jfif" alt="Smollan" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-briefcase text-brand-darkTeal\'></i>Smollan</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="images (4).jfif" alt="Jamaly Enterprises" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-boxes-packing text-brand-darkTeal\'></i>Jamaly Enterprises</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="images (5).jfif" alt="Hill Park General Hospital" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-hospital text-brand-darkTeal\'></i>Hill Park Hospital</span>'">
+                </div>
+
+                <div class="logo-card">
+                    <img src="ms peak.png" alt="MS Peak Consulting" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-sm flex items-center gap-2\'><i class=\'fa-solid fa-mountain text-brand-darkTeal\'></i>MS Peak Consulting</span>'">
+                </div>
+
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
+    <footer class="content-layer mt-auto bg-slate-950/90 border-t border-slate-800 text-slate-400 text-xs py-12 backdrop-blur">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold text-white">It.<span class="text-brand-cyan">VNE</span></span>
+                </div>
+                <p class="text-slate-500 leading-relaxed">Virtual Network Experts — Specializing in Virtualization, Network Security, Zero-Trust Architecture & Infrastructure Operations.</p>
+                <div class="text-slate-500">A sub-brand of <strong class="text-slate-300">VNE Digital</strong></div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-brand-cyan transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-brand-cyan transition">About Us</a></li>
+                    <li><a href="services.html" class="hover:text-brand-cyan transition">Services</a></li>
+                    <li><a href="clients.html" class="hover:text-brand-cyan transition">Clients & Trust</a></li>
+                    <li><a href="contact.html" class="hover:text-brand-cyan transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Core Solutions</h4>
+                <ul class="space-y-2">
+                    <li><a href="services.html#virtualization" class="hover:text-brand-cyan transition">VMware & Proxmox Setup</a></li>
+                    <li><a href="services.html#pfsense" class="hover:text-brand-cyan transition">pfSense Firewall Router</a></li>
+                    <li><a href="services.html#zerotrust" class="hover:text-brand-cyan transition">Cloudflare Zero Trust</a></li>
+                    <li><a href="services.html#cctv" class="hover:text-brand-cyan transition">CCTV Surveillance & NVR</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Network Operation Center</h4>
+                <p class="text-slate-500 mb-2">Block 3, Nazimabad Rd No 3, Near Gol Market, Karachi</p>
+                <p class="text-slate-300 font-mono">Email: support@vnedigital.com</p>
+                <p class="text-slate-300 font-mono mt-1">Web: labs.vnedigital.com</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-900 text-center text-slate-600">
+            &copy; 2026 VNE.IT (Virtual Network Experts) - VNE Digital. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- LIVE CANVAS PARTICLES ENGINE SCRIPT -->
     <script>
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
-        let width, height, particles = [];
-        const particleCount = 80, maxDistance = 140;
+
+        let width, height;
+        let particles = [];
+        const particleCount = 80;
+        const maxDistance = 140;
+
         const mouse = { x: null, y: null, radius: 180 };
 
         function initCanvas() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
             particles = [];
+
             for (let i = 0; i < particleCount; i++) {
                 particles.push({
-                    x: Math.random() * width, y: Math.random() * height,
-                    vx: (Math.random() - 0.5) * 1.2, vy: (Math.random() - 0.5) * 1.2,
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 1.2,
+                    vy: (Math.random() - 0.5) * 1.2,
                     radius: Math.random() * 2 + 1.5,
                     color: Math.random() > 0.5 ? '#00E5FF' : '#00D09C'
                 });
@@ -199,30 +410,75 @@
 
         function animate() {
             ctx.clearRect(0, 0, width, height);
+
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
+
                     if (dist < maxDistance) {
-                        ctx.strokeStyle = `rgba(0, 229, 255, ${(1 - dist / maxDistance) * 0.25})`;
-                        ctx.lineWidth = 1; ctx.beginPath();
+                        const opacity = 1 - dist / maxDistance;
+                        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.25})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
                     }
                 }
             }
+
             particles.forEach(p => {
-                p.x += p.vx; p.y += p.vy;
+                p.x += p.vx;
+                p.y += p.vy;
+
                 if (p.x < 0 || p.x > width) p.vx *= -1;
                 if (p.y < 0 || p.y > height) p.vy *= -1;
-                ctx.fillStyle = p.color; ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fill();
+
+                if (mouse.x !== null) {
+                    const dx = mouse.x - p.x;
+                    const dy = mouse.y - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        const opacity = 1 - dist / mouse.radius;
+                        ctx.strokeStyle = `rgba(0, 208, 156, ${opacity * 0.4})`;
+                        ctx.lineWidth = 1.2;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
             });
+
             requestAnimationFrame(animate);
         }
 
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
         window.addEventListener('resize', initCanvas);
-        initCanvas(); animate();
+
+        // Mobile Menu Script
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        initCanvas();
+        animate();
     </script>
 </body>
 </html>
