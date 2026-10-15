@@ -54,22 +54,22 @@
             pointer-events: none;
         }
 
-        /* Transparent content layers so background dots are visible underneath */
+        /* Transparent sections so glowing network dots show through like the About page */
         .content-layer {
             position: relative;
             z-index: 10;
-            background: rgba(15, 17, 23, 0.75);
-            backdrop-filter: blur(2px);
+            background: rgba(15, 17, 23, 0.4);
+            backdrop-filter: blur(1px);
         }
 
         .content-layer-alt {
             position: relative;
             z-index: 10;
-            background: rgba(18, 21, 29, 0.85);
-            backdrop-filter: blur(2px);
+            background: rgba(18, 21, 29, 0.5);
+            backdrop-filter: blur(1px);
         }
 
-        /* Infinite Marquee Container with Reference-style Side Fades */
+        /* Infinite Marquee Container with Fades */
         .marquee-container {
             overflow: hidden;
             position: relative;
@@ -86,14 +86,14 @@
         }
         .marquee-container::before {
             left: 0;
-            background: linear-gradient(to right, rgba(15, 17, 23, 1), rgba(15, 17, 23, 0));
+            background: linear-gradient(to right, rgba(15, 17, 23, 0.9), rgba(15, 17, 23, 0));
         }
         .marquee-container::after {
             right: 0;
-            background: linear-gradient(to left, rgba(15, 17, 23, 1), rgba(15, 17, 23, 0));
+            background: linear-gradient(to left, rgba(15, 17, 23, 0.9), rgba(15, 17, 23, 0));
         }
 
-        /* White Logo Cards Style with Soft Hover */
+        /* White Logo Cards Style */
         .logo-card {
             background-color: #FFFFFF;
             border-radius: 1rem;
@@ -125,7 +125,7 @@
     <canvas id="particles-canvas"></canvas>
 
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="content-layer bg-slate-950/90 border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
+    <div class="content-layer bg-slate-950/80 border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <span class="flex h-2 w-2 relative">
@@ -143,7 +143,7 @@
     </div>
 
     <!-- NAVIGATION HEADER -->
-    <header class="content-layer sticky top-0 z-40 bg-brand-charcoal/90 border-b border-slate-800 backdrop-blur-md">
+    <header class="content-layer sticky top-0 z-40 bg-brand-charcoal/80 border-b border-slate-800 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Brand Logo -->
@@ -232,7 +232,7 @@
             </p>
 
             <div class="flex flex-wrap gap-4 pt-4">
-                <a href="calculator.html" class="px-6 py-3.5 rounded-xl bg-brand-cardBg hover:bg-slate-800 text-white font-bold border border-slate-700 transition flex items-center gap-2 shadow-lg">
+                <a href="calculator.html" class="px-6 py-3.5 rounded-xl bg-brand-cardBg/90 hover:bg-slate-800 text-white font-bold border border-slate-700 transition flex items-center gap-2 shadow-lg">
                     <i class="fa-solid fa-calculator text-brand-cyan"></i>
                     <span>Calculate Infrastructure Cost</span>
                 </a>
@@ -244,7 +244,7 @@
         </div>
     </section>
 
-    <!-- LIVE INFINITE CLIENTS LOGO MARQUEE TICKER SECTION (WITH REFERENCE SIDE-FADE SHADOWS) -->
+    <!-- LIVE INFINITE CLIENTS LOGO MARQUEE TICKER SECTION -->
     <section class="content-layer py-12 border-y border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
             <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
@@ -315,17 +315,17 @@
                         We specialize in designing robust bare-metal hypervisor environments, securing branch-to-branch data channels with zero public exposure, and deploying high-performance enterprise applications for businesses across diverse sectors.
                     </p>
                     <div class="grid grid-cols-2 gap-4 pt-2 font-mono text-xs">
-                        <div class="bg-brand-cardBg p-4 rounded-xl border border-slate-800">
+                        <div class="bg-brand-cardBg/80 p-4 rounded-xl border border-slate-800">
                             <div class="text-brand-cyan font-bold text-xl mb-1">19+</div>
                             <div class="text-slate-400">Enterprise Clients Onboarded</div>
                         </div>
-                        <div class="bg-brand-cardBg p-4 rounded-xl border border-slate-800">
+                        <div class="bg-brand-cardBg/80 p-4 rounded-xl border border-slate-800">
                             <div class="text-brand-teal font-bold text-xl mb-1">99.99%</div>
                             <div class="text-slate-400">Infrastructure Uptime & SLA</div>
                         </div>
                     </div>
                 </div>
-                <div class="lg:col-span-6 bg-brand-cardBg border border-slate-800 p-8 rounded-3xl shadow-2xl relative">
+                <div class="lg:col-span-6 bg-brand-cardBg/80 border border-slate-800 p-8 rounded-3xl shadow-2xl relative backdrop-blur-md">
                     <div class="absolute -top-3 -right-3 px-3 py-1 rounded-full bg-brand-cyan text-slate-950 font-bold text-[10px] tracking-wider uppercase">NOC Verified</div>
                     <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <i class="fa-solid fa-server text-brand-cyan"></i> Core Engineering Standards
@@ -360,7 +360,7 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Service 1 -->
-                <div class="bg-brand-cardBg border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
+                <div class="bg-brand-cardBg/80 backdrop-blur-md border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-server"></i>
                     </div>
@@ -370,7 +370,7 @@
                 </div>
 
                 <!-- Service 2 -->
-                <div class="bg-brand-cardBg border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
+                <div class="bg-brand-cardBg/80 backdrop-blur-md border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
@@ -380,7 +380,7 @@
                 </div>
 
                 <!-- Service 3 -->
-                <div class="bg-brand-cardBg border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
+                <div class="bg-brand-cardBg/80 backdrop-blur-md border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
@@ -390,7 +390,7 @@
                 </div>
 
                 <!-- Service 4 -->
-                <div class="bg-brand-cardBg border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
+                <div class="bg-brand-cardBg/80 backdrop-blur-md border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-video"></i>
                     </div>
@@ -413,7 +413,7 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Skill Category 1 -->
-                <div class="bg-brand-cardBg border border-slate-800 p-6 rounded-2xl space-y-4">
+                <div class="bg-brand-cardBg/80 backdrop-blur-md border border-slate-800 p-6 rounded-2xl space-y-4">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center">
                             <i class="fa-solid fa-code"></i>
@@ -431,7 +431,7 @@
                 </div>
 
                 <!-- Skill Category 2 -->
-                <div class="bg-brand-cardBg border border-slate-800 p-6 rounded-2xl space-y-4">
+                <div class="bg-brand-cardBg/80 backdrop-blur-md border border-slate-800 p-6 rounded-2xl space-y-4">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center">
                             <i class="fa-solid fa-database"></i>
@@ -448,7 +448,7 @@
                 </div>
 
                 <!-- Skill Category 3 -->
-                <div class="bg-brand-cardBg border border-slate-800 p-6 rounded-2xl space-y-4">
+                <div class="bg-brand-cardBg/80 backdrop-blur-md border border-slate-800 p-6 rounded-2xl space-y-4">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center">
                             <i class="fa-solid fa-network-wired"></i>
@@ -468,7 +468,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="content-layer mt-auto bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
+    <footer class="content-layer mt-auto bg-slate-950/90 border-t border-slate-800 text-slate-400 text-xs py-12 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="space-y-3">
                 <div class="flex items-center gap-2">
