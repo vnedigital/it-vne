@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Support | VNE.IT - Virtual Network Experts</title>
+    <meta name="description" content="Get instant remote IT support via AnyDesk, UltraViewer, and TeamViewer from VNE.IT.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            teal: '#00D09C',
+                            cyan: '#00E5FF',
+                            darkTeal: '#009e76',
+                            charcoal: '#0F1117',
+                            cardBg: '#161922',
+                            slateAccent: '#202430'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; background-color: #0F1117; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .dropdown:hover .dropdown-menu { display: block; }
+
+        /* LIVE CANVAS BACKGROUND POSITIONING */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-brand-charcoal text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-cyan selection:text-black">
+
+    <!-- LIVE ANIMATED CANVAS BACKGROUND -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="content-layer bg-slate-950/90 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-3">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
+                </span>
+                <span><strong>NOC Remote Desk:</strong> Instant Assistance & Troubleshooting Online</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-4 text-slate-300 font-mono">
+                <span><i class="fa-solid fa-phone text-brand-cyan mr-1"></i> 03123416224 / 03121428970</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-envelope text-brand-cyan mr-1"></i> Info@vnedigital.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header class="content-layer sticky top-0 z-40 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="yber.png" alt="It.VNE Logo" class="w-10 h-10 object-contain rounded-xl group-hover:scale-105 transition-transform shadow-lg shadow-brand-cyan/20">
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-extrabold tracking-tight text-white flex items-center gap-1">
+                            It.<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">VNE</span>
+                        </span>
+                        <span class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold">Virtual Network Experts</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 text-sm font-medium">
+                    <a href="index.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Home</a>
+                    <a href="about.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">About</a>
+                    
+                    <div class="relative dropdown">
+                        <a href="services.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition inline-flex items-center gap-1">
+                            <span>Services</span>
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg border border-slate-700 shadow-2xl p-2 z-50">
+                            <a href="services.html#virtualization" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-server text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">VMware & Proxmox</div></div>
+                            </a>
+                            <a href="services.html#pfsense" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-shield-halved text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">pfSense & Firewalls</div></div>
+                            </a>
+                            <a href="services.html#zerotrust" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-network-wired text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">Zero Trust & VPN Tunnels</div></div>
+                            </a>
+                            <a href="services.html#cctv" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-video text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">IP CCTV Surveillance</div></div>
+                            </a>
+                            <a href="remote.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-brand-cyan/10 text-brand-cyan transition">
+                                <i class="fa-solid fa-desktop text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">Remote Support</div></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="clients.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Clients & Trust</a>
+                    <a href="remote.html" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand-cyan/10 to-brand-teal/10 text-brand-cyan font-semibold border border-brand-cyan/30">Remote Support</a>
+                    <a href="contact.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Contact</a>
+                </nav>
+
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold transition shadow-lg shadow-brand-cyan/25">
+                        Book Infrastructure Audit
+                    </a>
+                </div>
+
+                <button id="mobileMenuBtn" class="md:hidden text-slate-300 text-2xl p-2"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-cardBg border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Home</a>
+            <a href="about.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">About</a>
+            <a href="services.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Services</a>
+            <a href="clients.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Clients & Trust</a>
+            <a href="remote.html" class="block px-3 py-2 rounded-md bg-brand-cyan/10 text-brand-cyan font-semibold">Remote Support</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Contact</a>
+        </div>
+    </header>
+
+    <!-- PAGE TITLE -->
+    <section class="content-layer py-16 border-b border-slate-800 text-center relative overflow-hidden bg-brand-charcoal/50 backdrop-blur-sm">
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">On-Demand IT Assistance</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white mt-3 tracking-tight">Instant Remote Desktop Support</h1>
+            <p class="text-slate-300 text-sm sm:text-base mt-3 max-w-2xl mx-auto">Connect securely with our technical engineers in real-time via AnyDesk, UltraViewer, or TeamViewer.</p>
+        </div>
+    </section>
+
+    <!-- REMOTE SUPPORT TOOLS SECTION -->
+    <section class="content-layer py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <!-- AnyDesk Card -->
+            <div class="bg-brand-cardBg/90 border border-slate-700/80 rounded-2xl p-8 space-y-6 shadow-2xl backdrop-blur-md flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-white">AnyDesk Client</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        Fast and secure remote desktop application. Download and share your AnyDesk address with our support engineer for instant connection.
+                    </p>
+                </div>
+                <div>
+                    <a href="https://anydesk.com/en/downloads" target="_blank" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 transition shadow-lg shadow-brand-cyan/20">
+                        <i class="fa-solid fa-download"></i> Download AnyDesk
+                    </a>
+                </div>
+            </div>
+
+            <!-- UltraViewer Card -->
+            <div class="bg-brand-cardBg/90 border border-slate-700/80 rounded-2xl p-8 space-y-6 shadow-2xl backdrop-blur-md flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl">
+                        <i class="fa-solid fa-display"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-white">UltraViewer</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        Lightweight remote control software designed to allow our technical team to troubleshoot database or POS systems smoothly.
+                    </p>
+                </div>
+                <div>
+                    <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 transition shadow-lg shadow-brand-cyan/20">
+                        <i class="fa-solid fa-download"></i> Download UltraViewer
+                    </a>
+                </div>
+            </div>
+
+            <!-- TeamViewer Card -->
+            <div class="bg-brand-cardBg/90 border border-slate-700/80 rounded-2xl p-8 space-y-6 shadow-2xl backdrop-blur-md flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-white">TeamViewer</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        Industry-standard secure remote access tool for full system diagnostics, server configurations, and multi-branch updates.
+                    </p>
+                </div>
+                <div>
+                    <a href="https://www.teamviewer.com/en/download/" target="_blank" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 transition shadow-lg shadow-brand-cyan/20">
+                        <i class="fa-solid fa-download"></i> Download TeamViewer
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- HOW IT WORKS BOX -->
+        <div class="bg-brand-cardBg/80 border border-slate-800 rounded-2xl p-8 space-y-6 backdrop-blur-md">
+            <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                <i class="fa-solid fa-circle-info text-brand-cyan"></i> How Remote Support Works
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6 text-xs sm:text-sm text-slate-300 font-mono">
+                <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 space-y-2">
+                    <div class="text-brand-cyan font-bold text-base">01. Contact Us</div>
+                    <p class="text-slate-400">Call our support desk at <strong class="text-white">03123416224</strong> or <strong class="text-white">03121428970</strong> to notify our engineer.</p>
+                </div>
+                <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 space-y-2">
+                    <div class="text-brand-cyan font-bold text-base">02. Share Credentials</div>
+                    <p class="text-slate-400">Open AnyDesk or UltraViewer and provide your ID and temporary password to our technician.</p>
+                </div>
+                <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 space-y-2">
+                    <div class="text-brand-cyan font-bold text-base">03. Issue Resolved</div>
+                    <p class="text-slate-400">Sit back while our expert technical lead diagnoses and resolves your software or network issue securely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="content-layer mt-auto bg-slate-950/90 border-t border-slate-800 text-slate-400 text-xs py-12 backdrop-blur">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold text-white">It.<span class="text-brand-cyan">VNE</span></span>
+                </div>
+                <p class="text-slate-500 leading-relaxed">Virtual Network Experts — Specializing in Virtualization, Network Security, Zero-Trust Architecture & Infrastructure Operations.</p>
+                <div class="text-slate-500">A sub-brand of <strong class="text-slate-300">VNE Digital</strong></div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="hover:text-brand-cyan transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-brand-cyan transition">About Us</a></li>
+                    <li><a href="services.html" class="hover:text-brand-cyan transition">Services</a></li>
+                    <li><a href="clients.html" class="hover:text-brand-cyan transition">Clients & Trust</a></li>
+                    <li><a href="remote.html" class="hover:text-brand-cyan transition">Remote Support</a></li>
+                    <li><a href="contact.html" class="hover:text-brand-cyan transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Core Solutions</h4>
+                <ul class="space-y-2">
+                    <li><a href="services.html#virtualization" class="hover:text-brand-cyan transition">VMware & Proxmox Setup</a></li>
+                    <li><a href="services.html#pfsense" class="hover:text-brand-cyan transition">pfSense Firewall Router</a></li>
+                    <li><a href="services.html#zerotrust" class="hover:text-brand-cyan transition">Cloudflare Zero Trust</a></li>
+                    <li><a href="services.html#cctv" class="hover:text-brand-cyan transition">CCTV Surveillance & NVR</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Network Operation Center</h4>
+                <p class="text-slate-500 mb-2">Block 3, Nazimabad Rd No 3, Near Gol Market, Karachi</p>
+                <p class="text-slate-300 font-mono"><i class="fa-solid fa-phone text-brand-cyan mr-1"></i> 03123416224 / 03121428970</p>
+                <p class="text-slate-300 font-mono mt-1"><i class="fa-solid fa-envelope text-brand-cyan mr-1"></i> Info@vnedigital.com</p>
+                <div class="mt-3 space-y-1 font-mono text-[11px] text-slate-400">
+                    <div><i class="fa-solid fa-link text-brand-cyan mr-1"></i> <a href="https://www.vnedigital.com" target="_blank" class="hover:text-brand-cyan transition">www.vnedigital.com</a></div>
+                    <div><i class="fa-solid fa-link text-brand-cyan mr-1"></i> <a href="https://IT.vnedigital.com" target="_blank" class="hover:text-brand-cyan transition">IT.vnedigital.com</a></div>
+                    <div><i class="fa-solid fa-link text-brand-cyan mr-1"></i> <a href="https://Labs.vnedigital.com" target="_blank" class="hover:text-brand-cyan transition">Labs.vnedigital.com</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-900 text-center text-slate-600">
+            &copy; 2026 VNE.IT (Virtual Network Experts) - VNE Digital. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- LIVE CANVAS PARTICLES ENGINE SCRIPT -->
+    <script>
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+        const particleCount = 80;
+        const maxDistance = 140;
+
+        const mouse = { x: null, y: null, radius: 180 };
+
+        function initCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = [];
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 1.2,
+                    vy: (Math.random() - 0.5) * 1.2,
+                    radius: Math.random() * 2 + 1.5,
+                    color: Math.random() > 0.5 ? '#00E5FF' : '#00D09C'
+                });
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < maxDistance) {
+                        const opacity = 1 - dist / maxDistance;
+                        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.25})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                if (mouse.x !== null) {
+                    const dx = mouse.x - p.x;
+                    const dy = mouse.y - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        const opacity = 1 - dist / mouse.radius;
+                        ctx.strokeStyle = `rgba(0, 208, 156, ${opacity * 0.4})`;
+                        ctx.lineWidth = 1.2;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        window.addEventListener('resize', initCanvas);
+
+        // Mobile Navigation Toggle
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        initCanvas();
+        animate();
+    </script>
+</body>
+</html>
