@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Clients & Trust | VNE.IT - Virtual Network Experts</title>
-    <meta name="description" content="Discover the enterprise companies, retail brands, and corporate clients that trust VNE.IT for managed infrastructure and software development.">
+    <title>Clients & Trust | VNE.IT - Virtual Network Experts</title>
+    <meta name="description" content="Explore our trusted client network and enterprise deployment partners at VNE.IT.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -30,21 +30,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; background-color: #0F1117; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         .dropdown:hover .dropdown-menu { display: block; }
 
-        /* Corporate Trust & Global Business Collaboration Background */
-        .clients-trust-bg {
-            background: linear-gradient(to bottom, rgba(15, 17, 23, 0.88), rgba(15, 17, 23, 0.95)), 
-                        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+        /* FIXED CANVAS BACKGROUND POSITIONING */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        /* Screenshot-style White Client Logo Cards */
-        .client-logo-card {
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* White Logo Cards Style */
+        .client-card {
             background-color: #FFFFFF;
             border-radius: 1rem;
-            padding: 20px;
+            padding: 16px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -52,29 +62,26 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .client-logo-card:hover {
+        .client-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px -5px rgba(0, 229, 255, 0.3);
+            box-shadow: 0 15px 30px -5px rgba(0, 229, 255, 0.4);
         }
-        .client-logo-card img {
+        .client-card img {
             max-height: 70px;
             max-width: 180px;
             width: auto;
             height: auto;
             object-fit: contain;
         }
-
-        /* Slide Animation Classes */
-        .slide-left { opacity: 0; transform: translateX(-60px); transition: all 1s ease-out; }
-        .slide-right { opacity: 0; transform: translateX(60px); transition: all 1s ease-out; }
-        .slide-up { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
-        .animate-in { opacity: 1; transform: translate(0, 0); }
     </style>
 </head>
 <body class="bg-brand-charcoal text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-cyan selection:text-black">
 
+    <!-- LIVE ANIMATED CANVAS BACKGROUND -->
+    <canvas id="particles-canvas"></canvas>
+
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-slate-950/90 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
+    <div class="content-layer bg-slate-950/90 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <span class="flex h-2 w-2 relative">
@@ -91,10 +98,9 @@
     </div>
 
     <!-- NAVIGATION HEADER -->
-    <header class="sticky top-0 z-40 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
+    <header class="content-layer sticky top-0 z-40 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Brand Logo with Image -->
                 <a href="index.html" class="flex items-center gap-3 group">
                     <img src="yber.png" alt="It.VNE Logo" class="w-10 h-10 object-contain rounded-xl group-hover:scale-105 transition-transform shadow-lg shadow-brand-cyan/20">
                     <div class="flex flex-col">
@@ -105,7 +111,6 @@
                     </div>
                 </a>
 
-                <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-1 text-sm font-medium">
                     <a href="index.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Home</a>
                     <a href="about.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">About</a>
@@ -115,7 +120,7 @@
                             <span>Services</span>
                             <i class="fa-solid fa-chevron-down text-xs"></i>
                         </a>
-                        <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg border border-slate-700 shadow-2xl p-2 z-50">
+                        <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg/95 border border-slate-700 shadow-2xl p-2 z-50 backdrop-blur-md">
                             <a href="services.html#virtualization" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
                                 <i class="fa-solid fa-server text-brand-cyan w-5 text-center"></i>
                                 <div><div class="font-bold text-xs">VMware & Proxmox</div></div>
@@ -142,7 +147,7 @@
                 </nav>
 
                 <div class="hidden md:flex items-center gap-3">
-                    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal hover:opacity-90 text-slate-950 font-bold transition shadow-lg shadow-brand-cyan/25">
+                    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold transition shadow-lg shadow-brand-cyan/25">
                         Book Infrastructure Audit
                     </a>
                 </div>
@@ -151,7 +156,7 @@
             </div>
         </div>
 
-        <div id="mobileMenu" class="hidden md:hidden bg-brand-cardBg border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-cardBg/95 backdrop-blur-md border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
             <a href="index.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Home</a>
             <a href="about.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">About</a>
             <a href="services.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Services</a>
@@ -163,142 +168,103 @@
         </div>
     </header>
 
-    <!-- PAGE TITLE WITH CORPORATE TRUST BACKGROUND IMAGE -->
-    <section class="py-16 clients-trust-bg border-b border-slate-800 text-center relative overflow-hidden">
-        <div class="max-w-4xl mx-auto px-4 relative z-10 slide-up scroll-animate">
-            <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Enterprise Trust & Partnerships</span>
-            <h1 class="text-3xl sm:text-5xl font-extrabold text-white mt-3 mb-3 tracking-tight">Enterprise Networks & Infrastructure Deployed</h1>
-            <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">Powering 19+ leading enterprises, audit firms, and corporate brands with secure virtualization, zero-trust tunnels, and custom software solutions.</p>
+    <!-- PAGE TITLE -->
+    <section class="content-layer py-16 border-b border-slate-800/80 text-center relative overflow-hidden bg-brand-charcoal/50 backdrop-blur-sm">
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Enterprise Trust</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white mt-3 tracking-tight">Trusted by 19+ Leading Enterprise Clients</h1>
+            <p class="text-slate-300 text-sm sm:text-base mt-3 max-w-2xl mx-auto">Delivering high-availability network systems, server virtualization, and secure infrastructure.</p>
         </div>
     </section>
 
-    <!-- ALL 19 CLIENTS LOGOS GRID SECTION -->
-    <section class="py-16 clients-trust-bg border-b border-slate-800 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 slide-up scroll-animate">
-            <div class="text-center mb-10">
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-white uppercase tracking-wider">Our Trusted <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">Clientele Grid</span></h2>
-                <p class="text-slate-400 text-xs sm:text-sm mt-2">Explore the organizations and corporate partners powered by our engineering solutions.</p>
+    <!-- CLIENT LOGOS GRID SECTION -->
+    <section class="content-layer py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            
+            <div class="client-card">
+                <img src="abdul basit.png" alt="A. Basit Ghori & Co." onerror="this.src='https://via.placeholder.com/180x70?text=A.+Basit+Ghori'">
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                
-                <div class="client-logo-card">
-                    <img src="abdul basit.png" alt="A. Basit Ghori & Co." onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-building text-brand-darkTeal block mb-1 text-base\'></i>A. Basit Ghori & Co.</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="ae_2.png" alt="AE Global" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-globe text-brand-darkTeal block mb-1 text-base\'></i>AE Global</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="ali mukhtar.png" alt="Ali Mukhtar Agencies" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-handshake text-brand-darkTeal block mb-1 text-base\'></i>Ali Mukhtar Agencies</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="dim_2.png" alt="DEA Energy Technology" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-bolt text-brand-darkTeal block mb-1 text-base\'></i>DEA Energy Tech</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="FM traders.png" alt="FM Traders" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-coins text-brand-darkTeal block mb-1 text-base\'></i>FM Traders</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="global.png" alt="Global iTS" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-network-wired text-brand-darkTeal block mb-1 text-base\'></i>Global iTS</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="HIGH-IMPACT ENTREPRENEURS FOUNDATION_2.png" alt="High Impact Entrepreneurs" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-chart-line text-brand-darkTeal block mb-1 text-base\'></i>High Impact Foundation</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="hill park.png" alt="Hill Park General Hospital" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-hospital text-brand-darkTeal block mb-1 text-base\'></i>Hill Park Hospital</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="j4f .png" alt="Juice4Fun" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-glass-water text-brand-darkTeal block mb-1 text-base\'></i>Juice4Fun</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="jamaly enterprises.png" alt="Jamaly Enterprises" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-boxes-packing text-brand-darkTeal block mb-1 text-base\'></i>Jamaly Enterprises</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="Vmarcom.png" alt="Vmarcom" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-bullhorn text-brand-darkTeal block mb-1 text-base\'></i>Vmarcom</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="luminous.png" alt="Luminous Advertising" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-rectangle-ad text-brand-darkTeal block mb-1 text-base\'></i>Luminous Advertising</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="mspeak.png" alt="MS Peak Consulting" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-mountain text-brand-darkTeal block mb-1 text-base\'></i>MS Peak Consulting</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="primelinker.png" alt="PrimeLinkers" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-ship text-brand-darkTeal block mb-1 text-base\'></i>PrimeLinkers</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="servista.png" alt="Servista" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-hand-holding-heart text-brand-darkTeal block mb-1 text-base\'></i>Servista</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="smollan.png" alt="Smollan" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-briefcase text-brand-darkTeal block mb-1 text-base\'></i>Smollan</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="Sprint-Tech.png" alt="Sprint Tech" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-mobile-screen-button text-brand-darkTeal block mb-1 text-base\'></i>Sprint Tech</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="TAG group.png" alt="TAG Group" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-layer-group text-brand-darkTeal block mb-1 text-base\'></i>TAG Group</span>'">
-                </div>
-
-                <div class="client-logo-card">
-                    <img src="velosi.png" alt="Velosi Pakistan" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-extrabold text-slate-900 text-xs text-center\'><i class=\'fa-solid fa-screwdriver-wrench text-brand-darkTeal block mb-1 text-base\'></i>Velosi Pakistan</span>'">
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY CLIENTS TRUST VNE.IT BANNER -->
-    <section class="py-20 clients-trust-bg border-t border-slate-800 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12 slide-up scroll-animate relative z-10">
-            <div class="max-w-3xl mx-auto space-y-3">
-                <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Our Core Values</span>
-                <h2 class="text-3xl font-extrabold text-white">Why Growing Businesses Trust VNE.IT</h2>
-                <p class="text-slate-300 text-sm">We don't just set up servers or write code; we become your dedicated virtual network and IT engineering department.</p>
+            <!-- AE GLOBAL LOGO -->
+            <div class="client-card">
+                <img src="ae_2.png" alt="AE Global" onerror="this.src='https://via.placeholder.com/180x70?text=AE+Global'">
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 text-left">
-                <div class="bg-brand-cardBg/95 backdrop-blur border border-slate-800 p-6 rounded-2xl space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan">
-                        <i class="fa-solid fa-clock"></i>
-                    </div>
-                    <h3 class="font-bold text-white text-base">24/7 NOC Oversight</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">Continuous latency monitoring and rapid incident response protocols ensure zero unexpected business stoppages.</p>
-                </div>
-                <div class="bg-brand-cardBg/95 backdrop-blur border border-slate-800 p-6 rounded-2xl space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan">
-                        <i class="fa-solid fa-lock"></i>
-                    </div>
-                    <h3 class="font-bold text-white text-base">Zero-Trust Security</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">All databases and internal systems are protected behind encrypted Cloudflare tunnels with zero public attack surface.</p>
-                </div>
-                <div class="bg-brand-cardBg/95 backdrop-blur border border-slate-800 p-6 rounded-2xl space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan">
-                        <i class="fa-solid fa-handshake"></i>
-                    </div>
-                    <h3 class="font-bold text-white text-base">Direct Engineer Access</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">Talk directly to the lead architects and developers handling your infrastructure—no endless helpdesk routing.</p>
-                </div>
+            <div class="client-card">
+                <img src="ali mukhtar.png" alt="Ali Mukhtar Agencies" onerror="this.src='https://via.placeholder.com/180x70?text=Ali+Mukhtar'">
             </div>
+
+            <!-- DEA ENERGY TECH LOGO -->
+            <div class="client-card">
+                <img src="dim_2.png" alt="DEA Energy Tech" onerror="this.src='https://via.placeholder.com/180x70?text=DEA+Energy+Tech'">
+            </div>
+
+            <div class="client-card">
+                <img src="FM traders.png" alt="FM Traders" onerror="this.src='https://via.placeholder.com/180x70?text=FM+Traders'">
+            </div>
+
+            <div class="client-card">
+                <img src="global.png" alt="Global iTS" onerror="this.src='https://via.placeholder.com/180x70?text=Global+iTS'">
+            </div>
+
+            <!-- HIGH IMPACT FOUNDATION LOGO -->
+            <div class="client-card">
+                <img src="HIGH-IMPACT ENTREPRENEURS FOUNDATION_2.png" alt="High Impact Entrepreneurs Foundation" onerror="this.src='https://via.placeholder.com/180x70?text=High+Impact+Foundation'">
+            </div>
+
+            <div class="client-card">
+                <img src="hill park.png" alt="Hill Park General Hospital" onerror="this.src='https://via.placeholder.com/180x70?text=Hill+Park+Hospital'">
+            </div>
+
+            <div class="client-card">
+                <img src="j4f .png" alt="Juice4Fun" onerror="this.src='https://via.placeholder.com/180x70?text=Juice4Fun'">
+            </div>
+
+            <div class="client-card">
+                <img src="jamaly enterprises.png" alt="Jamaly Enterprises" onerror="this.src='https://via.placeholder.com/180x70?text=Jamaly+Enterprises'">
+            </div>
+
+            <div class="client-card">
+                <img src="Vmarcom.png" alt="Vmarcom" onerror="this.src='https://via.placeholder.com/180x70?text=Vmarcom'">
+            </div>
+
+            <div class="client-card">
+                <img src="luminous.png" alt="Luminous Advertising" onerror="this.src='https://via.placeholder.com/180x70?text=Luminous+Advertising'">
+            </div>
+
+            <div class="client-card">
+                <img src="mspeak.png" alt="MS Peak Consulting" onerror="this.src='https://via.placeholder.com/180x70?text=MS+Peak'">
+            </div>
+
+            <div class="client-card">
+                <img src="primelinker.png" alt="PrimeLinkers" onerror="this.src='https://via.placeholder.com/180x70?text=PrimeLinkers'">
+            </div>
+
+            <div class="client-card">
+                <img src="servista.png" alt="Servista" onerror="this.src='https://via.placeholder.com/180x70?text=Servista'">
+            </div>
+
+            <div class="client-card">
+                <img src="smollan.png" alt="Smollan" onerror="this.src='https://via.placeholder.com/180x70?text=Smollan'">
+            </div>
+
+            <div class="client-card">
+                <img src="Sprint-Tech.png" alt="Sprint Tech" onerror="this.src='https://via.placeholder.com/180x70?text=Sprint+Tech'">
+            </div>
+
+            <div class="client-card">
+                <img src="TAG group.png" alt="TAG Group" onerror="this.src='https://via.placeholder.com/180x70?text=TAG+Group'">
+            </div>
+
+            <div class="client-card">
+                <img src="velosi.png" alt="Velosi Pakistan" onerror="this.src='https://via.placeholder.com/180x70?text=Velosi+Pakistan'">
+            </div>
+
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="mt-auto bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
+    <footer class="content-layer mt-auto bg-slate-950/90 border-t border-slate-800 text-slate-400 text-xs py-12 backdrop-blur">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="space-y-3">
                 <div class="flex items-center gap-2">
@@ -314,6 +280,8 @@
                     <li><a href="about.html" class="hover:text-brand-cyan transition">About Us</a></li>
                     <li><a href="services.html" class="hover:text-brand-cyan transition">Services</a></li>
                     <li><a href="clients.html" class="hover:text-brand-cyan transition">Clients & Trust</a></li>
+                    <li><a href="calculator.html" class="hover:text-brand-cyan transition">Cost Estimator</a></li>
+                    <li><a href="portfolio.html" class="hover:text-brand-cyan transition">Case Studies</a></li>
                     <li><a href="contact.html" class="hover:text-brand-cyan transition">Contact Us</a></li>
                 </ul>
             </div>
@@ -328,7 +296,7 @@
             </div>
             <div>
                 <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Network Operation Center</h4>
-                <p class="text-slate-500 mb-2">Karachi, Pakistan / Remote Global Managed IT</p>
+                <p class="text-slate-500 mb-2">Block 3, Nazimabad Rd No 3, Near Gol Market, Karachi</p>
                 <p class="text-slate-300 font-mono">Email: support@vnedigital.com</p>
                 <p class="text-slate-300 font-mono mt-1">Web: labs.vnedigital.com</p>
             </div>
@@ -338,23 +306,106 @@
         </div>
     </footer>
 
-    <!-- Interactive Scripts & Animations -->
+    <!-- LIVE CANVAS PARTICLES ENGINE SCRIPT -->
     <script>
-        // Scroll Observer for Slide Animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, { threshold: 0.15 });
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
 
-        document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+        let width, height;
+        let particles = [];
+        const particleCount = 80;
+        const maxDistance = 140;
+
+        const mouse = { x: null, y: null, radius: 180 };
+
+        function initCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = [];
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 1.2,
+                    vy: (Math.random() - 0.5) * 1.2,
+                    radius: Math.random() * 2 + 1.5,
+                    color: Math.random() > 0.5 ? '#00E5FF' : '#00D09C'
+                });
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < maxDistance) {
+                        const opacity = 1 - dist / maxDistance;
+                        ctx.strokeStyle = `rgba(0, 229, 255, ${opacity * 0.25})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                if (mouse.x !== null) {
+                    const dx = mouse.x - p.x;
+                    const dy = mouse.y - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        const opacity = 1 - dist / mouse.radius;
+                        ctx.strokeStyle = `rgba(0, 208, 156, ${opacity * 0.4})`;
+                        ctx.lineWidth = 1.2;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        window.addEventListener('resize', initCanvas);
 
         // Mobile Navigation Toggle
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        initCanvas();
+        animate();
     </script>
 </body>
 </html>
