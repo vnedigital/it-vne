@@ -51,6 +51,20 @@
             z-index: 10;
         }
 
+        /* Infinite Marquee Animation for Companies Logos/Line */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
         /* Slide Animation Classes */
         .slide-left { opacity: 0; transform: translateX(-60px); transition: all 1s ease-out; }
         .slide-right { opacity: 0; transform: translateX(60px); transition: all 1s ease-out; }
@@ -157,7 +171,7 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="content-layer py-20 lg:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+    <section class="content-layer py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan font-mono text-xs uppercase tracking-wider slide-up scroll-animate">
             <i class="fa-solid fa-shield-halved"></i> Enterprise Managed Networks & Infrastructure
         </div>
@@ -171,9 +185,116 @@
             <a href="contact.html" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold text-sm transition shadow-lg shadow-brand-cyan/25 flex items-center gap-2">
                 <span>Book Infrastructure Audit</span> <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a href="services.html" class="px-8 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-white font-bold text-sm border border-slate-700 transition">
-                Explore Services
+            <a href="remote.html" class="px-8 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-white font-bold text-sm border border-slate-700 transition flex items-center gap-2">
+                <i class="fa-solid fa-desktop text-brand-cyan"></i> Remote Support Desk
             </a>
+        </div>
+    </section>
+
+    <!-- LIVE COMPANIES / PARTNERS MARQUEE TICKER LINE -->
+    <section class="content-layer py-6 bg-slate-950/80 border-y border-slate-800 overflow-hidden">
+        <div class="relative w-full overflow-hidden">
+            <div class="animate-marquee flex items-center space-x-12 whitespace-nowrap text-slate-300 font-mono text-xs sm:text-sm uppercase tracking-wider">
+                <!-- Group 1 -->
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-cardBg/60 border border-slate-800"><i class="fa-solid fa-building text-brand-cyan"></i> <strong>Juice4Fun</strong> - POS & E-Commerce</div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-cardBg/60 border border-slate-800"><i class="fa-solid fa-network-wired text-brand-teal"></i> <strong>3Z Telecom</strong> - Inventory & Billing</div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-cardBg/60 border border-slate-800"><i class="fa-solid fa-shield-halved text-brand-cyan"></i> <strong>MS PEAK Consulting</strong> - Brand Consultancy</div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-cardBg/60 border border-slate-800"><i class="fa-solid fa-server text-brand-teal"></i> <strong>VNE Digital Labs</strong> - Cloud Architecture</div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-cardBg/60 border border-slate-800"><i class="fa-solid fa-desktop text-brand-cyan"></i> <strong>AnyDesk & UltraViewer</strong> - Live Remote Desk</div>
+                
+                <!-- Group 2 (Duplicate for smooth infinite scroll) -->
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-cardBg/60 border border-slate-800"><i class="fa-solid fa-building text-brand-cyan"></i> <strong>Juice4Fun</strong> - POS & E-Commerce</div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-cardBg/60 border border-slate-800"><i class="fa-solid fa-network-wired text-brand-teal"></i> <strong>3Z Telecom</strong> - Inventory & Billing</div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-cardBg/60 border border-slate-800"><i class="fa-solid fa-shield-halved text-brand-cyan"></i> <strong>MS PEAK Consulting</strong> - Brand Consultancy</div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-cardBg/60 border border-slate-800"><i class="fa-solid fa-server text-brand-teal"></i> <strong>VNE Digital Labs</strong> - Cloud Architecture</div>
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-cardBg/60 border border-slate-800"><i class="fa-solid fa-desktop text-brand-cyan"></i> <strong>AnyDesk & UltraViewer</strong> - Live Remote Desk</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO WE ARE & SKILLS SECTION -->
+    <section class="content-layer py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6 slide-left scroll-animate">
+                <span class="text-brand-cyan font-mono text-xs uppercase tracking-wider bg-brand-cyan/10 px-3 py-1 rounded border border-brand-cyan/30">Who We Are</span>
+                <h2 class="text-3xl font-extrabold text-white">Engineering Resilient IT Systems for Modern Enterprises</h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    <strong>VNE.IT</strong> operates as the specialized infrastructure and managed networking sub-brand of <strong class="text-white">VNE Digital</strong>, founded by <strong class="text-white">Muhammad Saqib Mughal</strong>. We specialize in bridging hardware server virtualization, robust perimeter security, and full-stack software development.
+                </p>
+                <!-- Connected Portals -->
+                <div class="p-4 rounded-xl bg-brand-cardBg/80 border border-slate-800 space-y-2 font-mono text-xs">
+                    <span class="text-brand-cyan font-bold block uppercase tracking-wider">Connected Digital Ecosystem</span>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://www.vnedigital.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition"><i class="fa-solid fa-globe text-brand-cyan mr-1"></i> www.vnedigital.com</a>
+                        <a href="https://IT.vnedigital.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition"><i class="fa-solid fa-network-wired text-brand-cyan mr-1"></i> IT.vnedigital.com</a>
+                        <a href="https://Labs.vnedigital.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition"><i class="fa-solid fa-flask text-brand-cyan mr-1"></i> Labs.vnedigital.com</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-5 bg-brand-cardBg/95 border border-slate-700/80 rounded-2xl p-6 font-mono text-xs space-y-4 shadow-2xl slide-right scroll-animate backdrop-blur-md">
+                <div class="text-brand-cyan font-bold border-b border-slate-800 pb-3 flex justify-between items-center text-sm">
+                    <span>Core Technical Stack & Skills</span>
+                    <span>[EXPERT]</span>
+                </div>
+                <div class="space-y-3 text-slate-300">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-code text-brand-cyan mt-1"></i>
+                        <div><strong class="text-white block">Full-Stack Development:</strong> C#, ASP.NET Core MVC, Node.js, React, Next.js, and Electron.js.</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-network-wired text-brand-cyan mt-1"></i>
+                        <div><strong class="text-white block">Infrastructure & Virtualization:</strong> VMware ESXi, Proxmox, pfSense firewalls, and Cloudflare Tunnels.</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-headset text-brand-cyan mt-1"></i>
+                        <div><strong class="text-white block">Remote Support Desk:</strong> Instant troubleshooting via AnyDesk, UltraViewer, and TeamViewer.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE SERVICES SECTION -->
+    <section class="content-layer py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800 space-y-12">
+        <div class="text-center max-w-3xl mx-auto space-y-3 slide-up scroll-animate">
+            <span class="text-brand-cyan font-mono text-xs uppercase tracking-wider bg-brand-cyan/10 px-3 py-1 rounded border border-brand-cyan/30">What We Provide</span>
+            <h2 class="text-3xl font-extrabold text-white">Enterprise IT & Network Solutions</h2>
+            <p class="text-slate-300 text-sm">Comprehensive deployment and maintenance solutions tailored for modern businesses.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-brand-cardBg/90 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-brand-cyan/50 transition">
+                <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl">
+                    <i class="fa-solid fa-server"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white">VMware & Proxmox</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">High-performance bare-metal hypervisor setup and virtual machine management.</p>
+            </div>
+
+            <div class="bg-brand-cardBg/90 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-brand-cyan/50 transition">
+                <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white">pfSense Firewalls</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">Advanced perimeter defense, secure routing, and robust traffic filtering.</p>
+            </div>
+
+            <div class="bg-brand-cardBg/90 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-brand-cyan/50 transition">
+                <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white">Zero Trust Tunnels</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">Secure remote access to local corporate servers without public port exposure.</p>
+            </div>
+
+            <div class="bg-brand-cardBg/90 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-brand-cyan/50 transition">
+                <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl">
+                    <i class="fa-solid fa-desktop"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white">Remote IT Support</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">Instant troubleshooting and maintenance via AnyDesk, UltraViewer, and TeamViewer.</p>
+            </div>
         </div>
     </section>
 
@@ -204,7 +325,7 @@
                     <li><a href="services.html#virtualization" class="hover:text-brand-cyan transition">VMware & Proxmox Setup</a></li>
                     <li><a href="services.html#pfsense" class="hover:text-brand-cyan transition">pfSense Firewall Router</a></li>
                     <li><a href="services.html#zerotrust" class="hover:text-brand-cyan transition">Cloudflare Zero Trust</a></li>
-                    <li><a href="services.html#cctv" class="hover:text-brand-cyan transition">CCTV Surveillance & NVR</a></li>
+                    <li><a href="remote.html" class="hover:text-brand-cyan transition">Remote Support Desk</a></li>
                 </ul>
             </div>
             <div>
