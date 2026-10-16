@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>It.VNE - Virtual Network Experts | Enterprise Managed Infrastructure</title>
-    <meta name="description" content="VNE.IT delivers end-to-end IT infrastructure deployment, VMware ESXi / Proxmox virtualization, Zero-Trust network tunnels, pfSense firewalls, and AI CCTV surveillance.">
+    <title>VNE.IT - Virtual Network Experts & Infrastructure Engineering</title>
+    <meta name="description" content="VNE.IT delivers enterprise network infrastructure, VMware/Proxmox virtualization, Zero-Trust tunnels, and pfSense firewalls.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -21,15 +21,6 @@
                             cardBg: '#161922',
                             slateAccent: '#202430'
                         }
-                    },
-                    animation: {
-                        'marquee': 'marquee 35s linear infinite',
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-50%)' },
-                        }
                     }
                 }
             }
@@ -39,11 +30,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; background-color: #0F1117; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         .dropdown:hover .dropdown-menu { display: block; }
 
-        /* FIXED CANVAS BACKGROUND POSITIONING */
+        /* LIVE CANVAS BACKGROUND POSITIONING */
         #particles-canvas {
             position: fixed;
             top: 0;
@@ -54,71 +45,27 @@
             pointer-events: none;
         }
 
-        /* Fully transparent layers so background dots & nodes shine through clearly */
+        /* Content Layers */
         .content-layer {
             position: relative;
             z-index: 10;
-            background: transparent;
         }
 
-        /* Infinite Marquee Container with Fades */
-        .marquee-container {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-        }
-        .marquee-container::before, .marquee-container::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            width: 150px;
-            height: 100%;
-            z-index: 3;
-            pointer-events: none;
-        }
-        .marquee-container::before {
-            left: 0;
-            background: linear-gradient(to right, rgba(15, 17, 23, 0.95), rgba(15, 17, 23, 0));
-        }
-        .marquee-container::after {
-            right: 0;
-            background: linear-gradient(to left, rgba(15, 17, 23, 0.95), rgba(15, 17, 23, 0));
-        }
-
-        /* White Logo Cards Style */
-        .logo-card {
-            background-color: #FFFFFF;
-            border-radius: 1rem;
-            padding: 12px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 90px;
-            min-width: 220px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .logo-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px -5px rgba(0, 229, 255, 0.5);
-        }
-        .logo-card img {
-            max-height: 60px;
-            max-width: 170px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-        }
+        /* Slide Animation Classes */
+        .slide-left { opacity: 0; transform: translateX(-60px); transition: all 1s ease-out; }
+        .slide-right { opacity: 0; transform: translateX(60px); transition: all 1s ease-out; }
+        .slide-up { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
+        .animate-in { opacity: 1; transform: translate(0, 0); }
     </style>
 </head>
 <body class="bg-brand-charcoal text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-cyan selection:text-black">
 
-    <!-- LIVE ANIMATED CANVAS BACKGROUND (DOTS & NODES) -->
+    <!-- LIVE ANIMATED CANVAS BACKGROUND -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="content-layer bg-slate-950/80 border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <div class="content-layer bg-slate-950/90 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
             <div class="flex items-center gap-3">
                 <span class="flex h-2 w-2 relative">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
@@ -126,21 +73,20 @@
                 </span>
                 <span><strong>NOC Status:</strong> All Virtual Tunnels & Infrastructure Systems Operational (99.99%)</span>
             </div>
-            <div class="hidden sm:flex items-center gap-4">
-                <span><i class="fa-solid fa-signal text-brand-cyan mr-1"></i> HQ Ping: 14ms</span>
-                <span><i class="fa-solid fa-gauge-high text-brand-cyan mr-1"></i> Speed: 990 Mbps</span>
-                <span><i class="fa-solid fa-ticket text-brand-cyan mr-1"></i> Raise Ticket</span>
+            <div class="flex flex-wrap items-center gap-4 text-slate-300 font-mono">
+                <span><i class="fa-solid fa-phone text-brand-cyan mr-1"></i> 03123416224 / 03121428970</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-envelope text-brand-cyan mr-1"></i> Info@vnedigital.com</span>
             </div>
         </div>
     </div>
 
     <!-- NAVIGATION HEADER -->
-    <header class="content-layer sticky top-0 z-40 bg-brand-charcoal/80 border-b border-slate-800 backdrop-blur-md">
+    <header class="content-layer sticky top-0 z-40 bg-brand-charcoal/90 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Brand Logo -->
+                <!-- Brand Logo with Image -->
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <img src="yber.png" alt="It.VNE Logo" class="w-10 h-10 object-contain rounded-xl group-hover:scale-105 transition-transform shadow-lg shadow-brand-cyan/20" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2092/2092663.png'">
+                    <img src="yber.png" alt="It.VNE Logo" class="w-10 h-10 object-contain rounded-xl group-hover:scale-105 transition-transform shadow-lg shadow-brand-cyan/20">
                     <div class="flex flex-col">
                         <span class="text-2xl font-extrabold tracking-tight text-white flex items-center gap-1">
                             It.<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">VNE</span>
@@ -149,324 +95,90 @@
                     </div>
                 </a>
 
-               <!-- Navigation Links -->
-<nav class="hidden md:flex items-center space-x-1 text-sm font-medium">
-    <a href="index.html" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand-cyan/10 to-brand-teal/10 text-brand-cyan font-semibold border border-brand-cyan/30">Home</a>
-    <a href="about.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition">About</a>
-    
-    <!-- SERVICES DROPDOWN MENU -->
-    <div class="relative dropdown">
-        <a href="services.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition inline-flex items-center gap-1">
-            <span>Services</span>
-            <i class="fa-solid fa-chevron-down text-xs"></i>
-        </a>
-        <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg border border-slate-700 shadow-2xl p-2 z-50">
-            <a href="services.html#virtualization" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
-                <i class="fa-solid fa-server text-brand-cyan w-5 text-center"></i>
-                <div><div class="font-bold text-xs">VMware & Proxmox</div></div>
-            </a>
-            <a href="services.html#pfsense" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
-                <i class="fa-solid fa-shield-halved text-brand-cyan w-5 text-center"></i>
-                <div><div class="font-bold text-xs">pfSense & Firewalls</div></div>
-            </a>
-            <a href="services.html#zerotrust" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
-                <i class="fa-solid fa-network-wired text-brand-cyan w-5 text-center"></i>
-                <div><div class="font-bold text-xs">Zero Trust & VPN Tunnels</div></div>
-            </a>
-            <a href="services.html#cctv" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
-                <i class="fa-solid fa-video text-brand-cyan w-5 text-center"></i>
-                <div><div class="font-bold text-xs">IP CCTV Surveillance</div></div>
-            </a>
-            <!-- REMOTE SUPPORT OPTION ADDED HERE -->
-            <a href="services.html#remote-support" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
-                <i class="fa-solid fa-desktop text-brand-cyan w-5 text-center"></i>
-                <div><div class="font-bold text-xs">Remote Support (AnyDesk/UltraViewer)</div></div>
-            </a>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-1 text-sm font-medium">
+                    <a href="index.html" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand-cyan/10 to-brand-teal/10 text-brand-cyan font-semibold border border-brand-cyan/30">Home</a>
+                    <a href="about.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">About</a>
+                    
+                    <!-- SERVICES DROPDOWN MENU -->
+                    <div class="relative dropdown">
+                        <a href="services.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition inline-flex items-center gap-1">
+                            <span>Services</span>
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu hidden absolute left-0 mt-1 w-72 rounded-xl bg-brand-cardBg/95 border border-slate-700 shadow-2xl p-2 z-50 backdrop-blur-md">
+                            <a href="services.html#virtualization" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-server text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">VMware & Proxmox</div></div>
+                            </a>
+                            <a href="services.html#pfsense" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-shield-halved text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">pfSense & Firewalls</div></div>
+                            </a>
+                            <a href="services.html#zerotrust" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-network-wired text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">Zero Trust & VPN Tunnels</div></div>
+                            </a>
+                            <a href="services.html#cctv" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-video text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">IP CCTV Surveillance</div></div>
+                            </a>
+                            <a href="remote.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 text-slate-200 hover:text-brand-cyan transition">
+                                <i class="fa-solid fa-desktop text-brand-cyan w-5 text-center"></i>
+                                <div><div class="font-bold text-xs">Remote Support</div></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="clients.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Clients & Trust</a>
+                    <a href="remote.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Remote Support</a>
+                    <a href="contact.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Contact</a>
+                </nav>
+
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold transition shadow-lg shadow-brand-cyan/25">
+                        Book Infrastructure Audit
+                    </a>
+                </div>
+
+                <button id="mobileMenuBtn" class="md:hidden text-slate-300 text-2xl p-2"><i class="fa-solid fa-bars"></i></button>
+            </div>
         </div>
-    </div>
 
-    <a href="clients.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition">Clients & Trust</a>
-    <!-- REMOTE SUPPORT DIRECT LINK -->
-    <a href="services.html#remote-support" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition">Remote Support</a>
-    <a href="contact.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition">Contact</a>
-</nav>
-
-<div class="hidden md:flex items-center gap-3">
-    <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-extrabold transition hover:opacity-90 shadow-lg shadow-brand-cyan/25 flex items-center gap-2">
-        <span>Book Infrastructure Audit</span>
-        <i class="fa-solid fa-arrow-right text-xs"></i>
-    </a>
-</div>
-
-<button id="mobileMenuBtn" class="md:hidden text-slate-300 text-2xl p-2"><i class="fa-solid fa-bars"></i></button>
-</div>
-</div>
-
-<!-- MOBILE MENU -->
-<div id="mobileMenu" class="hidden md:hidden bg-brand-cardBg border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
-    <a href="index.html" class="block px-3 py-2 rounded-md bg-brand-cyan/10 text-brand-cyan font-semibold">Home</a>
-    <a href="about.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">About</a>
-    <a href="services.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Services</a>
-    <a href="clients.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Clients & Trust</a>
-    <a href="remote.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Remote Support</a>
-    <a href="contact.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Contact</a>
-    <a href="contact.html" class="block w-full text-center mt-4 px-4 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold">Book Infrastructure Audit</a>
-</div>
-</header>
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-cardBg/95 backdrop-blur-md border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block px-3 py-2 rounded-md bg-brand-cyan/10 text-brand-cyan font-semibold">Home</a>
+            <a href="about.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">About</a>
+            <a href="services.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Services</a>
+            <a href="clients.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Clients & Trust</a>
+            <a href="remote.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Remote Support</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Contact</a>
+            <a href="contact.html" class="block w-full text-center mt-4 px-4 py-2.5 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold">Book Infrastructure Audit</a>
+        </div>
+    </header>
 
     <!-- HERO SECTION -->
-    <section class="content-layer py-20 lg:py-28 relative">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-left space-y-8">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold uppercase tracking-wider">
-                <i class="fa-solid fa-shield-halved"></i> Enterprise Managed Networks & Infrastructure
-            </div>
-            
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-tight">
-                Architecting <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">Secure & Scalable</span> Virtual Network Systems
-            </h1>
-            
-            <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl">
-                VNE.IT delivers end-to-end IT infrastructure deployment, VMware ESXi / Proxmox virtualization, Zero-Trust network tunnels, pfSense enterprise firewalls, and AI-powered CCTV surveillance.
-            </p>
-
-            <div class="flex flex-wrap gap-4 pt-4">
-                <a href="calculator.html" class="px-6 py-3.5 rounded-xl bg-brand-cardBg hover:bg-slate-800 text-white font-bold border border-slate-700 transition flex items-center gap-2 shadow-lg">
-                    <i class="fa-solid fa-calculator text-brand-cyan"></i>
-                    <span>Calculate Infrastructure Cost</span>
-                </a>
-                <a href="services.html" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-cyan/20 to-brand-teal/20 text-brand-cyan border border-brand-cyan/40 font-bold hover:bg-brand-cyan/30 transition flex items-center gap-2">
-                    <i class="fa-solid fa-gauge-high"></i>
-                    <span>Explore Core Services</span>
-                </a>
-            </div>
+    <section class="content-layer py-20 lg:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan font-mono text-xs uppercase tracking-wider slide-up scroll-animate">
+            <i class="fa-solid fa-shield-halved"></i> Enterprise Managed Networks & Infrastructure
         </div>
-    </section>
-
-    <!-- LIVE INFINITE CLIENTS LOGO MARQUEE TICKER SECTION (ALL 19 LOGOS) -->
-    <section class="content-layer py-12 border-y border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-            <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
-                TRUSTED BY <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">19+ ENTERPRISE CLIENTS</span> & PARTNERS
-            </h3>
-        </div>
-
-        <div class="marquee-container flex items-center py-2">
-            <!-- FIRST SET OF ALL 19 LOGOS -->
-            <div class="flex items-center space-x-6 animate-marquee shrink-0 whitespace-nowrap">
-                <div class="logo-card"><img src="abdul basit.png" alt="A. Basit Ghori & Co." onerror="this.src='https://via.placeholder.com/180x60?text=A.+Basit'"></div>
-                <div class="logo-card"><img src="ae.png" alt="AE Global" onerror="this.src='https://via.placeholder.com/180x60?text=AE+Global'"></div>
-                <div class="logo-card"><img src="ali mukhtar.png" alt="Ali Mukhtar Agencies" onerror="this.src='https://via.placeholder.com/180x60?text=Ali+Mukhtar'"></div>
-                <div class="logo-card"><img src="dim.png" alt="DEA Energy Tech" onerror="this.src='https://via.placeholder.com/180x60?text=DEA+Energy'"></div>
-                <div class="logo-card"><img src="FM traders.png" alt="FM Traders" onerror="this.src='https://via.placeholder.com/180x60?text=FM+Traders'"></div>
-                <div class="logo-card"><img src="global.png" alt="Global iTS" onerror="this.src='https://via.placeholder.com/180x60?text=Global+iTS'"></div>
-                <div class="logo-card"><img src="high-impact.png" alt="High Impact Foundation" onerror="this.src='https://via.placeholder.com/180x60?text=High+Impact'"></div>
-                <div class="logo-card"><img src="hill park.png" alt="Hill Park Hospital" onerror="this.src='https://via.placeholder.com/180x60?text=Hill+Park'"></div>
-                <div class="logo-card"><img src="j4f .png" alt="Juice4Fun" onerror="this.src='https://via.placeholder.com/180x60?text=Juice4Fun'"></div>
-                <div class="logo-card"><img src="jamaly enterprises.png" alt="Jamaly Enterprises" onerror="this.src='https://via.placeholder.com/180x60?text=Jamaly'"></div>
-                <div class="logo-card"><img src="Vmarcom.png" alt="Vmarcom" onerror="this.src='https://via.placeholder.com/180x60?text=Vmarcom'"></div>
-                <div class="logo-card"><img src="luminous.png" alt="Luminous Advertising" onerror="this.src='https://via.placeholder.com/180x60?text=Luminous'"></div>
-                <div class="logo-card"><img src="mspeak.png" alt="MS Peak Consulting" onerror="this.src='https://via.placeholder.com/180x60?text=MS+Peak'"></div>
-                <div class="logo-card"><img src="primelinker.png" alt="PrimeLinkers" onerror="this.src='https://via.placeholder.com/180x60?text=PrimeLinkers'"></div>
-                <div class="logo-card"><img src="servista.png" alt="Servista" onerror="this.src='https://via.placeholder.com/180x60?text=Servista'"></div>
-                <div class="logo-card"><img src="smollan.png" alt="Smollan" onerror="this.src='https://via.placeholder.com/180x60?text=Smollan'"></div>
-                <div class="logo-card"><img src="Sprint-Tech.png" alt="Sprint Tech" onerror="this.src='https://via.placeholder.com/180x60?text=Sprint+Tech'"></div>
-                <div class="logo-card"><img src="TAG group.png" alt="TAG Group" onerror="this.src='https://via.placeholder.com/180x60?text=TAG+Group'"></div>
-                <div class="logo-card"><img src="velosi.png" alt="Velosi Pakistan" onerror="this.src='https://via.placeholder.com/180x60?text=Velosi'"></div>
-            </div>
-
-            <!-- SECOND DUPLICATE SET FOR SEAMLESS INFINITE LOOP -->
-            <div class="flex items-center space-x-6 animate-marquee shrink-0 whitespace-nowrap ml-6" aria-hidden="true">
-                <div class="logo-card"><img src="abdul basit.png" alt="A. Basit Ghori & Co." onerror="this.src='https://via.placeholder.com/180x60?text=A.+Basit'"></div>
-                <div class="logo-card"><img src="ae.png" alt="AE Global" onerror="this.src='https://via.placeholder.com/180x60?text=AE+Global'"></div>
-                <div class="logo-card"><img src="ali mukhtar.png" alt="Ali Mukhtar Agencies" onerror="this.src='https://via.placeholder.com/180x60?text=Ali+Mukhtar'"></div>
-                <div class="logo-card"><img src="dim.png" alt="DEA Energy Tech" onerror="this.src='https://via.placeholder.com/180x60?text=DEA+Energy'"></div>
-                <div class="logo-card"><img src="FM traders.png" alt="FM Traders" onerror="this.src='https://via.placeholder.com/180x60?text=FM+Traders'"></div>
-                <div class="logo-card"><img src="global.png" alt="Global iTS" onerror="this.src='https://via.placeholder.com/180x60?text=Global+iTS'"></div>
-                <div class="logo-card"><img src="high-impact.png" alt="High Impact Foundation" onerror="this.src='https://via.placeholder.com/180x60?text=High+Impact'"></div>
-                <div class="logo-card"><img src="hill park.png" alt="Hill Park Hospital" onerror="this.src='https://via.placeholder.com/180x60?text=Hill+Park'"></div>
-                <div class="logo-card"><img src="j4f .png" alt="Juice4Fun" onerror="this.src='https://via.placeholder.com/180x60?text=Juice4Fun'"></div>
-                <div class="logo-card"><img src="jamaly enterprises.png" alt="Jamaly Enterprises" onerror="this.src='https://via.placeholder.com/180x60?text=Jamaly'"></div>
-                <div class="logo-card"><img src="Vmarcom.png" alt="Vmarcom" onerror="this.src='https://via.placeholder.com/180x60?text=Vmarcom'"></div>
-                <div class="logo-card"><img src="luminous.png" alt="Luminous Advertising" onerror="this.src='https://via.placeholder.com/180x60?text=Luminous'"></div>
-                <div class="logo-card"><img src="mspeak.png" alt="MS Peak Consulting" onerror="this.src='https://via.placeholder.com/180x60?text=MS+Peak'"></div>
-                <div class="logo-card"><img src="primelinker.png" alt="PrimeLinkers" onerror="this.src='https://via.placeholder.com/180x60?text=PrimeLinkers'"></div>
-                <div class="logo-card"><img src="servista.png" alt="Servista" onerror="this.src='https://via.placeholder.com/180x60?text=Servista'"></div>
-                <div class="logo-card"><img src="smollan.png" alt="Smollan" onerror="this.src='https://via.placeholder.com/180x60?text=Smollan'"></div>
-                <div class="logo-card"><img src="Sprint-Tech.png" alt="Sprint Tech" onerror="this.src='https://via.placeholder.com/180x60?text=Sprint+Tech'"></div>
-                <div class="logo-card"><img src="TAG group.png" alt="TAG Group" onerror="this.src='https://via.placeholder.com/180x60?text=TAG+Group'"></div>
-                <div class="logo-card"><img src="velosi.png" alt="Velosi Pakistan" onerror="this.src='https://via.placeholder.com/180x60?text=Velosi'"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHO WE ARE SECTION -->
-    <section class="content-layer py-20 border-y border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-6 space-y-6">
-                    <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Who We Are</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Virtual Network Experts (VNE.IT)</h2>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Founded with a mission to bridge the gap between complex enterprise hardware and seamless software execution, VNE.IT operates as a premier managed infrastructure and full-stack engineering division under <strong>VNE Digital</strong>.
-                    </p>
-                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                        We specialize in designing robust bare-metal hypervisor environments, securing branch-to-branch data channels with zero public exposure, and deploying high-performance enterprise applications for businesses across diverse sectors.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 pt-2 font-mono text-xs">
-                        <div class="bg-brand-cardBg/60 backdrop-blur-sm p-4 rounded-xl border border-slate-800">
-                            <div class="text-brand-cyan font-bold text-xl mb-1">19+</div>
-                            <div class="text-slate-400">Enterprise Clients Onboarded</div>
-                        </div>
-                        <div class="bg-brand-cardBg/60 backdrop-blur-sm p-4 rounded-xl border border-slate-800">
-                            <div class="text-brand-teal font-bold text-xl mb-1">99.99%</div>
-                            <div class="text-slate-400">Infrastructure Uptime & SLA</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:col-span-6 bg-brand-cardBg/70 border border-slate-800 p-8 rounded-3xl shadow-2xl relative backdrop-blur-md">
-                    <div class="absolute -top-3 -right-3 px-3 py-1 rounded-full bg-brand-cyan text-slate-950 font-bold text-[10px] tracking-wider uppercase">NOC Verified</div>
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-server text-brand-cyan"></i> Core Engineering Standards
-                    </h3>
-                    <ul class="space-y-4 text-sm text-slate-300">
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-brand-cyan mt-1"></i>
-                            <div><strong>Zero-Trust Architecture:</strong> Secure tunnel routing bypassing traditional vulnerable port forwarding.</div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-brand-cyan mt-1"></i>
-                            <div><strong>Multi-Branch Synchronization:</strong> Real-time POS and database replication across remote outlets.</div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-brand-cyan mt-1"></i>
-                            <div><strong>24/7 Proactive Monitoring:</strong> Live latency tracking, threat prevention, and instant incident mitigation.</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CORE SERVICES BOXES -->
-    <section class="content-layer py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <div class="text-center max-w-3xl mx-auto space-y-3">
-                <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Managed Offerings</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Our Core Infrastructure Services</h2>
-                <p class="text-slate-300 text-sm">Enterprise-grade deployment solutions engineered for maximum security, speed, and reliability.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Service 1 -->
-                <div class="bg-brand-cardBg/70 backdrop-blur-md border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-server"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">VMware & Proxmox</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">High-performance hypervisor virtualization, custom virtual machine provisioning, and robust resource allocation.</p>
-                    <a href="services.html#virtualization" class="text-brand-cyan font-mono text-xs inline-flex items-center gap-1 hover:underline">Learn More <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="bg-brand-cardBg/70 backdrop-blur-md border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">pfSense Firewalls</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">Advanced perimeter security, traffic shaping, custom firewall rule matrices, and multi-WAN load balancing.</p>
-                    <a href="services.html#pfsense" class="text-brand-cyan font-mono text-xs inline-flex items-center gap-1 hover:underline">Learn More <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="bg-brand-cardBg/70 backdrop-blur-md border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-network-wired"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Zero-Trust Tunnels</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">Cloudflare Zero Trust secure remote access, encrypted backhauls, and static IP binding without port vulnerability.</p>
-                    <a href="services.html#zerotrust" class="text-brand-cyan font-mono text-xs inline-flex items-center gap-1 hover:underline">Learn More <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="bg-brand-cardBg/70 backdrop-blur-md border border-slate-800 p-6 rounded-2xl hover:border-brand-cyan/40 transition group space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-video"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">IP CCTV & NVR</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">Multi-site surveillance setups using Tiandy NVRs, SearchConfig tools, router port mapping, and mobile app streaming.</p>
-                    <a href="services.html#cctv" class="text-brand-cyan font-mono text-xs inline-flex items-center gap-1 hover:underline">Learn More <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TECHNICAL SKILLS & STACK -->
-    <section class="content-layer py-20 border-t border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <div class="text-center max-w-3xl mx-auto space-y-3">
-                <span class="text-brand-cyan font-semibold text-xs uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Engineering Competencies</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Technical Skills & Architecture Stack</h2>
-                <p class="text-slate-300 text-sm">Deep technical mastery across full-stack software development and network engineering.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Skill Category 1 -->
-                <div class="bg-brand-cardBg/70 backdrop-blur-md border border-slate-800 p-6 rounded-2xl space-y-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center">
-                            <i class="fa-solid fa-code"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white">Full-Stack Development</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">C# / .NET Core</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">ASP.NET MVC</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">Node.js</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">Electron.js</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">React & Next.js</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">Tailwind CSS</span>
-                    </div>
-                </div>
-
-                <!-- Skill Category 2 -->
-                <div class="bg-brand-cardBg/70 backdrop-blur-md border border-slate-800 p-6 rounded-2xl space-y-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center">
-                            <i class="fa-solid fa-database"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white">Databases & Build Tools</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">MS SQL Server</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">SQLite</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">EF Core Migrations</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">Inno Setup Compiler</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">electron-builder</span>
-                    </div>
-                </div>
-
-                <!-- Skill Category 3 -->
-                <div class="bg-brand-cardBg/70 backdrop-blur-md border border-slate-800 p-6 rounded-2xl space-y-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center">
-                            <i class="fa-solid fa-network-wired"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white">Infrastructure & Deployment</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">VMware ESXi</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">pfSense Firewall</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">Cloudflare Tunnels</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">IIS & DirectAdmin</span>
-                        <span class="px-3 py-1 rounded-lg bg-slate-800 text-brand-cyan font-mono text-xs">Tiandy NVRs</span>
-                    </div>
-                </div>
-            </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight slide-up scroll-animate">
+            Architecting <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">Secure & Scalable</span> Virtual Network Systems
+        </h1>
+        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed slide-up scroll-animate">
+            VNE.IT delivers end-to-end IT infrastructure deployment, VMware ESXi / Proxmox virtualization, Zero-Trust network tunnels, pfSense enterprise firewalls, and AI-powered CCTV surveillance.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 pt-4 slide-up scroll-animate">
+            <a href="contact.html" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-teal text-slate-950 font-bold text-sm transition shadow-lg shadow-brand-cyan/25 flex items-center gap-2">
+                <span>Book Infrastructure Audit</span> <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="services.html" class="px-8 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-white font-bold text-sm border border-slate-700 transition">
+                Explore Services
+            </a>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="content-layer mt-auto bg-slate-950/90 border-t border-slate-800 text-slate-400 text-xs py-12 backdrop-blur-md">
+    <footer class="content-layer mt-auto bg-slate-950/90 border-t border-slate-800 text-slate-400 text-xs py-12 backdrop-blur">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="space-y-3">
                 <div class="flex items-center gap-2">
@@ -496,7 +208,7 @@
                 </ul>
             </div>
             <div>
-                 <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Network Operation Center</h4>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Network Operation Center</h4>
                 <p class="text-slate-500 mb-2">Block 3, Nazimabad Rd No 3, Near Gol Market, Karachi</p>
                 <p class="text-slate-300 font-mono"><i class="fa-solid fa-phone text-brand-cyan mr-1"></i> 03123416224 / 03121428970</p>
                 <p class="text-slate-300 font-mono mt-1"><i class="fa-solid fa-envelope text-brand-cyan mr-1"></i> Info@vnedigital.com</p>
@@ -605,7 +317,18 @@
 
         window.addEventListener('resize', initCanvas);
 
-        // Mobile Menu Script
+        // Scroll Observer for Slide Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+
+        // Mobile Navigation Toggle
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
