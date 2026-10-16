@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | VNE.IT - Virtual Network Experts</title>
-    <meta name="description" content="Learn about VNE.IT, founded by Muhammad Saqib Mughal, delivering enterprise network infrastructure and full-stack software development expertise.">
+    <meta name="description" content="Learn about VNE.IT, delivering enterprise network infrastructure and full-stack software development expertise.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -65,7 +65,7 @@
 
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="content-layer bg-slate-950/90 backdrop-blur border-b border-slate-800 text-xs py-2 px-4 text-slate-400 z-50">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
             <div class="flex items-center gap-3">
                 <span class="flex h-2 w-2 relative">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
@@ -73,9 +73,9 @@
                 </span>
                 <span><strong>NOC Status:</strong> All Virtual Tunnels & Infrastructure Systems Operational (99.99%)</span>
             </div>
-            <div class="hidden sm:flex items-center gap-4">
-                <span><i class="fa-solid fa-headset text-brand-cyan mr-1"></i> 24/7 Managed NOC</span>
-                <span><i class="fa-solid fa-envelope text-brand-cyan mr-1"></i> support@vnedigital.com</span>
+            <div class="flex flex-wrap items-center gap-4 text-slate-300 font-mono">
+                <span><i class="fa-solid fa-phone text-brand-cyan mr-1"></i> 03123416224 / 03121428970</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-envelope text-brand-cyan mr-1"></i> Info@vnedigital.com</span>
             </div>
         </div>
     </div>
@@ -172,11 +172,22 @@
                 <span class="text-brand-cyan font-mono text-xs uppercase tracking-wider bg-brand-cyan/10 px-3 py-1 rounded border border-brand-cyan/30">Who We Are</span>
                 <h2 class="text-3xl font-extrabold text-white">Engineering Resilient IT Systems for Modern Enterprises</h2>
                 <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                    <strong>VNE.IT</strong> operates as the specialized infrastructure and managed networking sub-brand of <strong class="text-white">VNE Digital</strong>. We focus on bridging the gap between hardware server virtualization, robust perimeter security, and seamless multi-location connectivity.
+                    <strong>VNE.IT</strong> (Virtual Network Experts) operates as the specialized managed networking and infrastructure engineering division of <strong class="text-white">VNE Digital</strong>. We focus on bridging the gap between hardware server virtualization, robust perimeter security, and seamless multi-location connectivity.
                 </p>
                 <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
                     Led by experienced system architects, our mission is to eliminate network downtime, secure sensitive corporate databases using zero-trust tunnels, and empower businesses with reliable 24/7 Network Operations Center (NOC) oversight.
                 </p>
+
+                <!-- PORTAL & PLATFORM LINKS -->
+                <div class="p-4 rounded-xl bg-brand-cardBg/80 border border-slate-800 space-y-2">
+                    <span class="text-xs uppercase font-mono tracking-wider text-brand-cyan font-bold block">Connected Ecosystem & Digital Portals</span>
+                    <div class="flex flex-wrap gap-3 text-xs font-mono">
+                        <a href="https://www.vnedigital.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition"><i class="fa-solid fa-globe text-brand-cyan mr-1.5"></i> www.vnedigital.com</a>
+                        <a href="https://IT.vnedigital.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition"><i class="fa-solid fa-network-wired text-brand-cyan mr-1.5"></i> IT.vnedigital.com</a>
+                        <a href="https://Labs.vnedigital.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition"><i class="fa-solid fa-flask text-brand-cyan mr-1.5"></i> Labs.vnedigital.com</a>
+                    </div>
+                </div>
+
                 <div class="grid sm:grid-cols-2 gap-4 pt-2 text-xs font-mono text-slate-300">
                     <div class="bg-brand-cardBg/90 p-4 rounded-xl border border-slate-800 flex items-center gap-3 backdrop-blur-md">
                         <i class="fa-solid fa-server text-brand-cyan text-lg"></i>
@@ -208,6 +219,12 @@
                         <i class="fa-solid fa-check text-brand-cyan mt-1"></i>
                         <div><strong class="text-white block">Proactive NOC:</strong> Real-time latency tracking and incident response under 15 minutes.</div>
                     </div>
+                </div>
+                <!-- DIRECT CONTACT INFO CARD -->
+                <div class="pt-4 border-t border-slate-800 space-y-2 text-slate-300">
+                    <div class="text-white font-bold text-xs uppercase tracking-wider mb-2">Direct Contact Desk</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-phone text-brand-cyan"></i> <span>03123416224 / 03121428970</span></div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-envelope text-brand-cyan"></i> <span>Info@vnedigital.com</span></div>
                 </div>
             </div>
         </div>
@@ -248,8 +265,13 @@
             <div>
                 <h4 class="text-white font-bold mb-3 uppercase tracking-wider">Network Operation Center</h4>
                 <p class="text-slate-500 mb-2">Block 3, Nazimabad Rd No 3, Near Gol Market, Karachi</p>
-                <p class="text-slate-300 font-mono">Email: support@vnedigital.com</p>
-                <p class="text-slate-300 font-mono mt-1">Web: labs.vnedigital.com</p>
+                <p class="text-slate-300 font-mono"><i class="fa-solid fa-phone text-brand-cyan mr-1"></i> 03123416224 / 03121428970</p>
+                <p class="text-slate-300 font-mono mt-1"><i class="fa-solid fa-envelope text-brand-cyan mr-1"></i> Info@vnedigital.com</p>
+                <div class="mt-3 space-y-1 font-mono text-[11px] text-slate-400">
+                    <div><i class="fa-solid fa-link text-brand-cyan mr-1"></i> <a href="https://www.vnedigital.com" target="_blank" class="hover:text-brand-cyan transition">www.vnedigital.com</a></div>
+                    <div><i class="fa-solid fa-link text-brand-cyan mr-1"></i> <a href="https://IT.vnedigital.com" target="_blank" class="hover:text-brand-cyan transition">IT.vnedigital.com</a></div>
+                    <div><i class="fa-solid fa-link text-brand-cyan mr-1"></i> <a href="https://Labs.vnedigital.com" target="_blank" class="hover:text-brand-cyan transition">Labs.vnedigital.com</a></div>
+                </div>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-900 text-center text-slate-600">
